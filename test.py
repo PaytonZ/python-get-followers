@@ -1,6 +1,6 @@
 
 '''
-Proudly made by JLPV
+Proudly made by JLPV to FM
 Program that get followers
 Facebook
 Twitter
@@ -11,9 +11,14 @@ Youtube
 
 
 Linkedin requires
+https://github.com/ozgur/python-linkedin
 $ pip install python-linkedin
 $ pip install requests
 $ pip install requests_oauthlib
+
+from twython import Twython
+https://github.com/bear/python-twitter
+
 '''
 
 import json
@@ -21,22 +26,24 @@ import urllib2
 import httplib
 import urllib
 from linkedin import linkedin
+from twython import Twython
 
 
 print "Just a little try"
-'''
-twitter_api = "https://api.twitter.com/1.1/users/show.json?screen_name="
-name_twitter= "rsarver"
-twitter_token = "iOmJS41zSl21c7h6rhxyK5u9T"
-twitter_token_secret ="FBVT6Azd0oSk9n4sEHDYrgjA8xwCXqmkrYwZvmjBp6sOW0ypSf"
 
-params = urllib.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
-headers = {"Content-type": "application/x-www-form-urlencoded",
-	"Accept": "text/plain"}
-conn = httplib.HTTPConnection(twitter_api)
-conn.request("POST", "", params, headers)
-'''
-#data = json.load(urllib2.urlopen(""))
+twitter_token = "103836433-NhVUnFa94eVEa1YOdZQkl4qV77NiCfVp6888fYvI"
+twitter_token_secret ="qFvHq82TwQPkGK10yc6jMxqztz1tcBlWPVCKIRDe9BVWb"
+twitter_consumer_key = 'iOmJS41zSl21c7h6rhxyK5u9T'
+twitter_consumer_secret = 'FBVT6Azd0oSk9n4sEHDYrgjA8xwCXqmkrYwZvmjBp6sOW0ypSf'
+
+
+twitter = Twython(twitter_consumer_key, twitter_consumer_secret, oauth_version=2)
+ACCESS_TOKEN = twitter.obtain_access_token()
+twitter = Twython(twitter_consumer_key, access_token=ACCESS_TOKEN)
+followers = twitter.show_user(screen_name = 'katyperry')
+
+print "Twitter followers? %d" % followers['followers_count']
+
 
 print "Youtube Channel Followers Test"
 youtube_api = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=%s&key="
