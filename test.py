@@ -92,3 +92,7 @@ RETURN_URL = 'http://localhost:8000'
 authentication = linkedin.LinkedInAuthentication(linkedin_api_key, linkedin_api_secret, RETURN_URL, linkedin.PERMISSIONS.enums.values())
 print authentication.authorization_url  # open this url on your browser
 application = linkedin.LinkedInApplication(authentication)
+authentication.authorization_code = raw_input("Insert here the auth token: ")
+token = authentication.get_access_token()
+application = linkedin.LinkedInApplication(token='AQTPEQE-tb9zYCFwqDK9KAt8oboIPL4A9cGip9LYNxltYXwDFJVCnreE6rJ_GQRxHPXPj4d0dUcR4PqSRjsgudOeZfyPBV9De11Hr1M2bK0YILV-it')
+application.get_company_updates(1035, params={'count': 2})
