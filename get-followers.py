@@ -66,7 +66,7 @@ for client in data['clients']:
 
 	'''
 	Twitter AREA
-	
+	'''
 	if client.get('twitter'):
 		twitter_token = "103836433-NhVUnFa94eVEa1YOdZQkl4qV77NiCfVp6888fYvI"
 		twitter_token_secret ="qFvHq82TwQPkGK10yc6jMxqztz1tcBlWPVCKIRDe9BVWb"
@@ -81,9 +81,9 @@ for client in data['clients']:
 
 		print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
 
-	
+	'''
 	Youtube AREA
-	
+	'''
 	if client.get('youtube'):
 		youtube_api = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=%s&key="
 		#channel_id = "UCjKOqskq9R0LUTzA-Lj6Wmg"
@@ -96,9 +96,9 @@ for client in data['clients']:
 		 
 		print "Youtube followers of %s :" % channel_id  + str(data['items'][0]['statistics']['subscriberCount'])
 
-	
+	'''
 	GooglePlus AREA
-	
+	'''
 	if client.get('googleplus'):
 		googleplusapi = "https://www.googleapis.com/plus/v1/people/%s?key="
 		#id_googleplus = "113551191017950459231"
@@ -107,9 +107,9 @@ for client in data['clients']:
 		data = json.load(urllib2.urlopen(google_plus_final))
 		print "Google+ followers of " + str(id_googleplus) +":"+ str(data['circledByCount'])
 
-	
+	'''
 	Facebook AREA
-	
+	'''
 	if client.get('facebook'):
 		facebook_api = "http://graph.facebook.com/%s"
 		#facebook_id = "portal.baquia"
@@ -118,9 +118,9 @@ for client in data['clients']:
 		data = json.load(urllib2.urlopen(facebook_final))
 		print "Facebook followers of %s" % str(facebook_id) +":"+ str(data['likes'])
 	
-	
+	'''
 	Pinterest AREA
-	
+	'''
 	if client.get('pinterest'):
 		pinterest_api_token = "MTQzMTU5NDozODY4ODc1NjE2NDcyNTY3NDU6NjU1MzV8MTQwNDc1OTM3NjoyNTkyMDAwLS1iZDM3NzU2NTVlNWViNTc1MjVhMDdkMzc2MjBjMmFmNQ=="
 		pinterest_url = "https://api.pinterest.com/v3/users/%s/?access_token="
@@ -129,7 +129,6 @@ for client in data['clients']:
 		pinterest_final_url = pinterest_url % pinterest_user + pinterest_api_token
 		data = json.load(urllib2.urlopen(pinterest_final_url))
 		print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
-	'''
 
 	def _wait_for_user_to_enter_browser(app):
 	    class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
