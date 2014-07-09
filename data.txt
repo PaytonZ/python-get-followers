@@ -1,19 +1,17 @@
-{
-"clients":
-[
-{
-"name":"thisisatest",
-"twitter":"katyperry",
-"youtube":"UCuNY3eeP2gACgmorxbpxwuQ",
-"googleplus":"113551191017950459231",
-"pinterest":"baquia",
-"facebook":"portal.baquia"
-},
-{
-"name":"john"
-},
-{
-"name":"joe"
-}
-]
+{ "clients": [ {
+				"name":"thisisatest",
+				"twitter":"katyperry",
+				"youtube":"UCuNY3eeP2gACgmorxbpxwuQ",
+				"googleplus":"113551191017950459231",
+				"pinterest":"baquia",
+				"facebook":"portal.baquia",
+				"linkedin":""
+			   },
+			   {
+				"name":"john"
+			   },
+			   {
+				"name":"joe"
+				}
+			 ]
 }

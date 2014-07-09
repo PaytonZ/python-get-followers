@@ -15,15 +15,15 @@ $ pip install python-linkedin
 $ pip install requests
 $ pip install requests_oauthlib
 
-from twython import Twython
-pip install twython
+Twitter requires
+$ pip install twython
 
-Pinterest TOken should be renewed after 1 http://month/
+Pinterest Token should be renewed after 1 http://month/
 https://www.pinterest.com/oauth/?consumer_id=1431594&response_type=token
 
 Versions
 ---------------
-v.01 -- 07/07/2014 - Working All Networks but Linkedin"
+v0.1 -- 07/07/2014 - Working All Networks except Linkedin"
 v0.2 -- 07/07/2014 - File data.txt inserting data in json format
 '''
 
@@ -32,11 +32,14 @@ import urllib2
 import httplib
 import urllib
 from linkedin import linkedin
+from linkedin import server
 from twython import Twython
 from pprint import pprint
 import sys
 
-
+import webbrowser
+import BaseHTTPServer
+import urlparse
 
 print "=========================================================="
 print "Python Script for getting Followers in Social Networks"
@@ -63,7 +66,7 @@ for client in data['clients']:
 
 	'''
 	Twitter AREA
-	'''
+	
 	if client.get('twitter'):
 		twitter_token = "103836433-NhVUnFa94eVEa1YOdZQkl4qV77NiCfVp6888fYvI"
 		twitter_token_secret ="qFvHq82TwQPkGK10yc6jMxqztz1tcBlWPVCKIRDe9BVWb"
@@ -78,9 +81,9 @@ for client in data['clients']:
 
 		print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
 
-	'''
+	
 	Youtube AREA
-	'''
+	
 	if client.get('youtube'):
 		youtube_api = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=%s&key="
 		#channel_id = "UCjKOqskq9R0LUTzA-Lj6Wmg"
@@ -93,9 +96,9 @@ for client in data['clients']:
 		 
 		print "Youtube followers of %s :" % channel_id  + str(data['items'][0]['statistics']['subscriberCount'])
 
-	'''
+	
 	GooglePlus AREA
-	'''
+	
 	if client.get('googleplus'):
 		googleplusapi = "https://www.googleapis.com/plus/v1/people/%s?key="
 		#id_googleplus = "113551191017950459231"
@@ -104,6 +107,9 @@ for client in data['clients']:
 		data = json.load(urllib2.urlopen(google_plus_final))
 		print "Google+ followers of " + str(id_googleplus) +":"+ str(data['circledByCount'])
 
+	
+	Facebook AREA
+	
 	if client.get('facebook'):
 		facebook_api = "http://graph.facebook.com/%s"
 		#facebook_id = "portal.baquia"
@@ -111,11 +117,10 @@ for client in data['clients']:
 		facebook_final = facebook_api % facebook_id
 		data = json.load(urllib2.urlopen(facebook_final))
 		print "Facebook followers of %s" % str(facebook_id) +":"+ str(data['likes'])
-		
 	
-	'''
+	
 	Pinterest AREA
-	'''
+	
 	if client.get('pinterest'):
 		pinterest_api_token = "MTQzMTU5NDozODY4ODc1NjE2NDcyNTY3NDU6NjU1MzV8MTQwNDc1OTM3NjoyNTkyMDAwLS1iZDM3NzU2NTVlNWViNTc1MjVhMDdkMzc2MjBjMmFmNQ=="
 		pinterest_url = "https://api.pinterest.com/v3/users/%s/?access_token="
@@ -124,7 +129,44 @@ for client in data['clients']:
 		pinterest_final_url = pinterest_url % pinterest_user + pinterest_api_token
 		data = json.load(urllib2.urlopen(pinterest_final_url))
 		print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
-		
+	'''
+
+	def _wait_for_user_to_enter_browser(app):
+	    class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+	        def do_GET(self):
+	            p = self.path.split('?')
+	            if len(p) > 1:
+	                params = urlparse.parse_qs(p[1], True, True)
+	                app.authentication.authorization_code = params['code'][0]
+	                return app.authentication.get_access_token()
+
+	    server_address = ('', 8000)
+	    httpd = BaseHTTPServer.HTTPServer(server_address, MyHandler)
+	    httpd.handle_request()
+
+	'''
+	Linkedin AREA
+	'''
+	if client.get('linkedin'):
+		linkedin_api_key = "77bnwshr9m4k8m"
+		linkedin_api_secret = "quxcGwVh5zjK3rLU"
+
+		RETURN_URL = "http://localhost:8000"
+
+		auth = linkedin.LinkedInAuthentication(linkedin_api_key, linkedin_api_secret, RETURN_URL, linkedin.PERMISSIONS.enums.values())
+
+		application = linkedin.LinkedInApplication(authentication=auth)
+		#print auth.authorization_url
+
+		# Esto crea un pequenho servidor local para recuperar el codigo de autenticacion
+		# antes de que expire el tiempo para obtener el token
+		webbrowser.open_new(auth.authorization_url)
+
+		tokenObtenido = _wait_for_user_to_enter_browser(application)
+
+		print "El token del infierno %s" % str(tokenObtenido) # El jodido token vuelve como None :/
+		application = linkedin.LinkedInApplication(token=tokenObtenido)
+		print application.get_profile()
 
 	'''
 	Linkedin
