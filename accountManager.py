@@ -9,9 +9,10 @@ def menu():
 	print '1 - Create a new client and his group of accounts'
 	print '2 - Add a new social account'
 	print '3 - Delete a new social account'
-	print '4 - List actual accounts'
-	print '5 - List actual clients'
-	print '6 - To exit from accout manager'
+	print '4 - Delete client and his accounts'
+	print '5 - List actual accounts'
+	print '6 - List actual clients'
+	print '7 - To exit from accout manager'
 	print ''
 
 	switch = {
@@ -19,9 +20,10 @@ def menu():
 		1 : create_account_group,
 		2 : add_account,
 		3 : delete_account,
-		4 : list_accounts,
-		5 : list_clients,
-		6 : quit
+		4 : delete_client,
+		5 : list_accounts,
+		6 : list_clients,
+		7 : quit
 	}
 
 	selection = raw_input("Insert an option: ")
@@ -36,7 +38,7 @@ def create_account_group(name=None, accounts=None):
 	if name:
 		print 'crea la cuenta'
 	else:
-		print 'no la crea'
+		print 'pregunta'
 
 def add_account(name=None, account=None):
 
@@ -44,9 +46,70 @@ def add_account(name=None, account=None):
 
 def delete_account(name=None, account=None):
 
-	print 'comming soon'
+	filename = 'data.txt'
 
-def list_accounts(Name=None):
+	json_data = open(filename, "rw")
+
+	data = json.load(json_data)
+
+	clients = data['clients']
+
+	if name and account:
+		for client in clients:
+			if client == name:
+				for ac in client['accounts']:
+					if ac == account:
+						client['accounts'].remove(cuenta)
+						break
+				break
+	else:
+		nombre = raw_input("Write the client account owner: ")
+		cuenta = raw_input("Write the account name: ")
+
+		for client in clients:
+			if client['name'] == nombre:
+				accounts = client['accounts']
+				for ac in range(0, len(accounts)):
+					if client['accounts'][ac].split(':')[0] == cuenta:
+						client['accounts'].pop(ac)
+						break
+				break
+
+	#json.dump(data, json_data)
+	json_data.close()
+
+	print '**Deleted account**'
+
+def delete_client(name=None):
+
+	filename = 'data.txt'
+
+	json_data = open(filename, 'rw')
+
+	data = json.load(json_data)
+	clients = data['clients']
+
+	if name:
+		for client in clients:
+			if client == name:
+				clients.remove(name)
+				break
+	else:
+		nombre = raw_input("Write the client account owner: ")
+		for client in clients:
+			if client == nombre:
+				for account in client['accounts']:
+					if account == cuenta:
+						client['accounts'].remove(cuenta)
+						break
+				break
+
+	json.dump(data, json_data)
+	json_data.close()
+
+	print 'Deleted client'
+
+def list_accounts(name=None):
 
 	filename = "data.txt"
 	print "Trying to read data from %s" % filename
@@ -60,20 +123,24 @@ def list_accounts(Name=None):
 		print "parsing exception!"
 		sys.exit()
 
-	print 'Client list:'
-	print ''
 
-	for client in data['clients']:
+	if name:
+		print "no esta hecho"
+	else:
 
-		print client['name']
-		print '- Accounts:'
+		print 'Client list:'
+		print ''
 
-		for account in client['accounts']:
-			
-			accountInfo = account.split(':')
+		for client in data['clients']:
 
-			print '--' + accountInfo[0]
-			print '--' + accountInfo[1]
+			print client['name']
+			print '- Accounts:'
+
+			for account in client['accounts']:
+				
+				accountInfo = account.split(':')
+
+				print '  --' + accountInfo[0] + ' : ' + accountInfo[1]
 
 def list_clients():
 
@@ -91,7 +158,7 @@ def list_clients():
 
 	for client in data['clients']:
 
-		print '--' + client['name']
+		print ' --' + client['name']
 
 
 def quit():

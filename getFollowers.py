@@ -27,7 +27,7 @@ def get_followers():
 		json_data.close()
 	except:
 		print "parsing exception!"
-		sys.exit()
+		sys.exit(0)
 
 	for client in data['clients']:
 
@@ -103,7 +103,7 @@ def get_followers():
 				data = json.load(urllib2.urlopen(pinterest_final_url))
 				print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
 
-			'''
+			
 			Linkedin AREA
 			
 			def _wait_for_user_to_enter_browser(app):
@@ -139,7 +139,7 @@ def get_followers():
 				print "El token del infierno %s" % str(tokenObtenido) # El jodido token vuelve como None :/
 				application = linkedin.LinkedInApplication(token=tokenObtenido)
 				print application.get_profile()
-			'''
+			
 			'''
 			Linkedin
 			API Key:

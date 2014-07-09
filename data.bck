@@ -1,0 +1,22 @@
+{ "clients": [ {
+				"name":"thisisatest",
+				"accounts":
+							[
+								"twitter:katyperry",
+								"youtube:UCuNY3eeP2gACgmorxbpxwuQ",
+								"googleplus:113551191017950459231",
+								"pinterest:baquia",
+								"facebook:portal.baquia",
+								"linkedin:"
+							]
+			   },
+			   {
+				"name":"john",
+				"accounts": []
+			   },
+			   {
+				"name":"joe",
+				"accounts": []
+			   }
+			 ]
+}

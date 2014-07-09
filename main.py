@@ -51,6 +51,9 @@ def get_followers():
 def account_manager():
 	accountManager.menu()
 
+def quit():
+	sys.exit(0)
+
 switch = {
 	1 : get_followers,
 	2 : account_manager,
