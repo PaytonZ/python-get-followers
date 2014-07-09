@@ -40,7 +40,7 @@ import sys
 
 print "=========================================================="
 print "Python Script for getting Followers in Social Networks"
-print "The Script is given AS IS, dont blame the dev if it dont work"
+print "The Script is given AS IS, dont blame the dev if it doesn't work"
 print "If you're not agree , close this script immediately"
 print "v0.2 -- 07/07/2014 - File data.txt inserting data in json format"
 print "=========================================================="
