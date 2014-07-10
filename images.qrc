@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="icons">
-    <file>social.png</file>
-    <file>client.png</file>
-  </qresource>
-</RCC>
