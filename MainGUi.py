@@ -6,7 +6,7 @@ from GuiGenerated import Ui_MainWindow
 from PySide import QtCore, QtGui
 import sys
 
-def listener(stri):
+def listenerSaveButton(stri):
 	if stri != "":
 		mySW.ui.saveBt.setEnabled(True)
 	else:
@@ -19,7 +19,7 @@ class ControlMainWindow(QtGui.QMainWindow):
 		self.ui.setupUi(self)
 
 	def customSetUp(self):
-		QtCore.QObject.connect(self.ui.clientNameText, QtCore.SIGNAL("textEdited(QString)"), listener)
+		QtCore.QObject.connect(self.ui.clientNameText, QtCore.SIGNAL("textEdited(QString)"), listenerSaveButton)
 
 if __name__ == '__main__':
 	app = QtGui.QApplication(sys.argv)
