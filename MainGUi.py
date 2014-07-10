@@ -6,6 +6,10 @@ from GuiGenerated import Ui_MainWindow
 from PySide import QtCore, QtGui
 import sys
 
+
+'''
+CLIENT AREA LISTENERS
+'''
 def listenerClientName(textValue):
 	if textValue != "":
 		mySW.ui.saveBt.setEnabled(True)
@@ -26,6 +30,47 @@ def listenerClientName(textValue):
 		mySW.ui.twitterText.setEnabled(False)
 		mySW.ui.clientNameText.setEnabled(False)
 
+def listenerSaveButton():
+
+	print "saving..."
+
+'''
+SOCIAL AREA LISTENERS
+'''
+def listenerCheckBoxes():
+	if mySW.ui.twitterCk.isChecked() or mySW.ui.googleCk.isChecked() or mySW.ui.facebookCk.isChecked() or mySW.ui.pinterestCk.isChecked() or mySW.ui.youtubeCk.isChecked() or mySW.ui.linkedinCk.isChecked():
+		mySW.ui.removeBt.setEnabled(True)
+	else:
+		mySW.ui.removeBt.setEnabled(False)
+
+def listenerRemoveAccounts():
+
+	print "deleting..."
+
+def listenerEditInfo():
+
+	oldData = { 'twitter':'', 'facebook':'', 'linkedin':'', 'google':'', 'pinterest':'', 'youtube':'' }
+
+	noData = True
+
+	for account in oldData.keys():
+		if oldData[account] != '':
+			noData = False
+
+	if noData:
+		mySW.ui.editBt.setText('Save edited info')
+
+		mySW.ui.googleLabel_2.setEnabled(True)
+		mySW.ui.facebookLabel_2.setEnabled(True)
+		mySW.ui.pinterestLabel_2.setEnabled(True)
+		mySW.ui.youtubeLabel_2.setEnabled(True)
+		mySW.ui.twitterLabel_2.setEnabled(True)
+		mySW.ui.linkedinLabel_2.setEnabled(True)
+	else:
+		mySW.ui.editBt.setText('Edit info')
+
+	print "editing...."
+
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
 		super(ControlMainWindow, self).__init__(parent)
@@ -33,7 +78,21 @@ class ControlMainWindow(QtGui.QMainWindow):
 		self.ui.setupUi(self)
 
 	def customSetUp(self):
+		#Listener for Client name text field
 		QtCore.QObject.connect(self.ui.clientNameText, QtCore.SIGNAL("textEdited(QString)"), listenerClientName)
+		#Listener for save client and accounts button
+		QtCore.QObject.connect(self.ui.saveBt, QtCore.SIGNAL("clicked()"), listenerSaveButton)
+		#Listener for checkboxes
+		QtCore.QObject.connect(self.ui.linkedinCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		QtCore.QObject.connect(self.ui.twitterCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		QtCore.QObject.connect(self.ui.facebookCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		QtCore.QObject.connect(self.ui.youtubeCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		QtCore.QObject.connect(self.ui.pinterestCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		QtCore.QObject.connect(self.ui.googleCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		#Listener for remove social account
+		QtCore.QObject.connect(self.ui.removeBt, QtCore.SIGNAL("clicked()"), listenerRemoveAccounts)
+		#Listener for edit social info accounts
+		QtCore.QObject.connect(self.ui.editBt, QtCore.SIGNAL("clicked()"), listenerEditInfo)
 
 if __name__ == '__main__':
 	app = QtGui.QApplication(sys.argv)
