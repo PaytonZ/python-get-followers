@@ -24,6 +24,7 @@ Versions
 ---------------
 v0.1 -- 07/07/2014 - Working All Networks except Linkedin"
 v0.2 -- 07/07/2014 - File data.txt inserting data in json format
+v0.8 -- 10/07/2014 - GUI with listeners (MainGUI.py)
 '''
 
 import sys
@@ -35,7 +36,7 @@ print "=========================================================="
 print "Python Script for getting Followers in Social Networks"
 print "The Script is given AS IS, dont blame the dev if it doesn't work"
 print "If you're not agree , close this script immediately"
-print "v0.3 -- 09/07/2014 - Menu and account manager"
+print "v0.8 -- 10/07/2014 - GUI with listeners (MainGUI.py)"
 print "=========================================================="
 
 print '*****SOCIAL NETWORK MANAGER*****'
