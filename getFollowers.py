@@ -103,9 +103,9 @@ def get_followers():
 				data = json.load(urllib2.urlopen(pinterest_final_url))
 				print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
 
-			
+			'''
 			Linkedin AREA
-			
+			'''
 			def _wait_for_user_to_enter_browser(app):
 			    class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			        def do_GET(self):
@@ -119,7 +119,7 @@ def get_followers():
 			    httpd = BaseHTTPServer.HTTPServer(server_address, MyHandler)
 			    httpd.handle_request()
 
-			if account[0] == 'linkedin']:
+			if account[0] == 'linkedin':
 				linkedin_api_key = "77bnwshr9m4k8m"
 				linkedin_api_secret = "quxcGwVh5zjK3rLU"
 
