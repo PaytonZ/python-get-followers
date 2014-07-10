@@ -59,6 +59,8 @@ def listenerRemoveAccounts():
 
 def listenerEditInfo():
 
+	print ""
+	'''
 	if mySW.ui.googleLabel_2.isEnabled() and mySW.ui.facebookLabel_2.isEnabled() and mySW.ui.pinterestLabel_2.isEnabled() and mySW.ui.youtubeLabel_2.isEnabled() and mySW.ui.twitterLabel_2.isEnabled() and mySW.ui.linkedinLabel_2.isEnabled():
 		mySW.ui.editBt.setText('Save edited info')
 
@@ -76,7 +78,6 @@ def listenerEditInfo():
 		oldData['pinterest'] = mySW.ui.pinterestLabel_2.getText()
 		oldData['youtube'] = mySW.ui.youtubeLabel_2.getText()
 
-	'''
 	noData = True
 
 	for account in oldData.keys():
@@ -101,10 +102,11 @@ def listenerEditInfo():
 		mySW.ui.youtubeLabel_2.setEnabled(False)
 		mySW.ui.twitterLabel_2.setEnabled(False)
 		mySW.ui.linkedinLabel_2.setEnabled(False)
-	'''
+
 		print "editing...."
 	else:
-
+		print ""
+	'''
 
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
