@@ -117,7 +117,11 @@
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="1" column="1">
-           <widget class="QLineEdit" name="twitterText"/>
+           <widget class="QLineEdit" name="twitterText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="twitterLabel">
@@ -134,7 +138,11 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="youtubeText"/>
+           <widget class="QLineEdit" name="youtubeText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="linkedinLabel">
@@ -144,7 +152,11 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QLineEdit" name="linkedinText"/>
+           <widget class="QLineEdit" name="linkedinText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="facebookLabel">
@@ -154,7 +166,11 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLineEdit" name="facebookText"/>
+           <widget class="QLineEdit" name="facebookText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="googleLabel">
@@ -164,7 +180,11 @@
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QLineEdit" name="googleText"/>
+           <widget class="QLineEdit" name="googleText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
           <item row="6" column="0">
            <widget class="QLabel" name="pinterestLabel">
@@ -174,7 +194,11 @@
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QLineEdit" name="pinterestText"/>
+           <widget class="QLineEdit" name="pinterestText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -223,19 +247,6 @@
        <attribute name="title">
         <string/>
        </attribute>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>90</y>
-          <width>62</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
       </widget>
      </widget>
     </widget>
@@ -414,22 +425,6 @@
     <hint type="destinationlabel">
      <x>371</x>
      <y>132</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clientNameText</sender>
-   <signal>textEdited(QString)</signal>
-   <receiver>saveBt</receiver>
-   <slot>toggle()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>568</x>
-     <y>134</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>606</x>
-     <y>471</y>
     </hint>
    </hints>
   </connection>
