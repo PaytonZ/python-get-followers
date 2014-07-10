@@ -59,54 +59,38 @@ def listenerRemoveAccounts():
 
 def listenerEditInfo():
 
-	print ""
-	'''
-	if mySW.ui.googleLabel_2.isEnabled() and mySW.ui.facebookLabel_2.isEnabled() and mySW.ui.pinterestLabel_2.isEnabled() and mySW.ui.youtubeLabel_2.isEnabled() and mySW.ui.twitterLabel_2.isEnabled() and mySW.ui.linkedinLabel_2.isEnabled():
-		mySW.ui.editBt.setText('Save edited info')
-
-		mySW.ui.googleLabel_2.setEnabled(True)
-		mySW.ui.facebookLabel_2.setEnabled(True)
-		mySW.ui.pinterestLabel_2.setEnabled(True)
-		mySW.ui.youtubeLabel_2.setEnabled(True)
-		mySW.ui.twitterLabel_2.setEnabled(True)
-		mySW.ui.linkedinLabel_2.setEnabled(True)
-
-		oldData['twitter'] = mySW.ui.twitterLabel_2.getText()
-		oldData['facebook'] = mySW.ui.facebookLabel_2.getText()
-		oldData['linkedin'] = mySW.ui.linkedinLabel_2.getText()
-		oldData['google'] = mySW.ui.googleLabel_2.getText()
-		oldData['pinterest'] = mySW.ui.pinterestLabel_2.getText()
-		oldData['youtube'] = mySW.ui.youtubeLabel_2.getText()
-
-	noData = True
-
-	for account in oldData.keys():
-		if oldData[account] != '':
-			noData = False
-	
-	if noData:
-		mySW.ui.editBt.setText('Save edited info')
-
-		mySW.ui.googleLabel_2.setEnabled(True)
-		mySW.ui.facebookLabel_2.setEnabled(True)
-		mySW.ui.pinterestLabel_2.setEnabled(True)
-		mySW.ui.youtubeLabel_2.setEnabled(True)
-		mySW.ui.twitterLabel_2.setEnabled(True)
-		mySW.ui.linkedinLabel_2.setEnabled(True)
-	else:
+	if mySW.ui.googleText_2.isEnabled() and mySW.ui.facebookText_2.isEnabled() and mySW.ui.pinterestText_2.isEnabled() and mySW.ui.youtubeText_2.isEnabled() and mySW.ui.twitterText_2.isEnabled() and mySW.ui.linkedinText_2.isEnabled():
+		
 		mySW.ui.editBt.setText('Edit info')
 
-		mySW.ui.googleLabel_2.setEnabled(False)
-		mySW.ui.facebookLabel_2.setEnabled(False)
-		mySW.ui.pinterestLabel_2.setEnabled(False)
-		mySW.ui.youtubeLabel_2.setEnabled(False)
-		mySW.ui.twitterLabel_2.setEnabled(False)
-		mySW.ui.linkedinLabel_2.setEnabled(False)
+		mySW.ui.googleText_2.setEnabled(False)
+		mySW.ui.facebookText_2.setEnabled(False)
+		mySW.ui.pinterestText_2.setEnabled(False)
+		mySW.ui.youtubeText_2.setEnabled(False)
+		mySW.ui.twitterText_2.setEnabled(False)
+		mySW.ui.linkedinText_2.setEnabled(False)
 
-		print "editing...."
+		for account in oldData.keys():
+			print oldData[account]
+
+		print 'saving....'
 	else:
-		print ""
-	'''
+		mySW.ui.editBt.setText('Save edited info')
+
+		mySW.ui.googleText_2.setEnabled(True)
+		mySW.ui.facebookText_2.setEnabled(True)
+		mySW.ui.pinterestText_2.setEnabled(True)
+		mySW.ui.youtubeText_2.setEnabled(True)
+		mySW.ui.twitterText_2.setEnabled(True)
+		mySW.ui.linkedinText_2.setEnabled(True)
+
+		oldData['twitter'] = mySW.ui.twitterText_2.text()
+		oldData['facebook'] = mySW.ui.facebookText_2.text()
+		oldData['linkedin'] = mySW.ui.linkedinText_2.text()
+		oldData['google'] = mySW.ui.googleText_2.text()
+		oldData['pinterest'] = mySW.ui.pinterestText_2.text()
+		oldData['youtube'] = mySW.ui.youtubeText_2.text()
+
 
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
