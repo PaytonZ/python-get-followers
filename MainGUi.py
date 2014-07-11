@@ -135,22 +135,22 @@ class ControlMainWindow(QtGui.QMainWindow):
 		loadClientList()
 
 		#Listener for Client name text field
-		QtCore.QObject.connect(self.ui.clientNameText, QtCore.SIGNAL("textEdited(QString)"), listenerClientName)
+		self.ui.clientNameText.textEdited.connect(listenerClientName)
 		#Listener for save client and accounts button
-		QtCore.QObject.connect(self.ui.saveBt, QtCore.SIGNAL("clicked()"), listenerSaveButton)
+		self.ui.saveBt.clicked.connect(listenerSaveButton)
 		#Listener for checkboxes
-		QtCore.QObject.connect(self.ui.linkedinCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
-		QtCore.QObject.connect(self.ui.twitterCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
-		QtCore.QObject.connect(self.ui.facebookCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
-		QtCore.QObject.connect(self.ui.youtubeCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
-		QtCore.QObject.connect(self.ui.pinterestCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
-		QtCore.QObject.connect(self.ui.googleCk, QtCore.SIGNAL("clicked()"), listenerCheckBoxes)
+		self.ui.linkedinCk.clicked.connect(listenerCheckBoxes)
+		self.ui.twitterCk.clicked.connect(listenerCheckBoxes)
+		self.ui.facebookCk.clicked.connect(listenerCheckBoxes)
+		self.ui.youtubeCk.clicked.connect(listenerCheckBoxes)
+		self.ui.pinterestCk.clicked.connect(listenerCheckBoxes)
+		self.ui.googleCk.clicked.connect(listenerCheckBoxes)
 		#Listener for remove social account
-		QtCore.QObject.connect(self.ui.removeBt, QtCore.SIGNAL("clicked()"), listenerRemoveAccounts)
+		self.ui.removeBt.clicked.connect(listenerRemoveAccounts)
 		#Listener for edit social info accounts
-		QtCore.QObject.connect(self.ui.editBt, QtCore.SIGNAL("clicked()"), listenerEditInfo)
+		self.ui.editBt.clicked.connect(listenerEditInfo)
 		#Listener client list
-		mySW.ui.clientListWidget.itemClicked.connect(listenerOnClientClicked)
+		self.ui.clientListWidget.itemClicked.connect(listenerOnClientClicked)
 
 if __name__ == '__main__':
 	app = QtGui.QApplication(sys.argv)
