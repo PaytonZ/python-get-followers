@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Thu Jul 10 21:32:42 2014
+# Created: Fri Jul 11 13:07:04 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -108,9 +108,6 @@ class Ui_MainWindow(object):
         self.tabAccountManager.addTab(self.clientManagerTab, icon, "")
         self.socialManagerTab = QtGui.QWidget()
         self.socialManagerTab.setObjectName("socialManagerTab")
-        self.clientListView = QtGui.QListView(self.socialManagerTab)
-        self.clientListView.setGeometry(QtCore.QRect(10, 30, 221, 391))
-        self.clientListView.setObjectName("clientListView")
         self.clientListLabel = QtGui.QLabel(self.socialManagerTab)
         self.clientListLabel.setGeometry(QtCore.QRect(10, 10, 62, 16))
         self.clientListLabel.setObjectName("clientListLabel")
@@ -118,7 +115,7 @@ class Ui_MainWindow(object):
         self.soccialAccountGroup.setGeometry(QtCore.QRect(240, 10, 361, 411))
         self.soccialAccountGroup.setObjectName("soccialAccountGroup")
         self.editBt = QtGui.QPushButton(self.soccialAccountGroup)
-        self.editBt.setGeometry(QtCore.QRect(30, 370, 114, 32))
+        self.editBt.setGeometry(QtCore.QRect(20, 370, 141, 32))
         self.editBt.setObjectName("editBt")
         self.removeBt = QtGui.QPushButton(self.soccialAccountGroup)
         self.removeBt.setEnabled(False)
@@ -226,6 +223,9 @@ class Ui_MainWindow(object):
         self.twitterCk.setSizePolicy(sizePolicy)
         self.twitterCk.setObjectName("twitterCk")
         self.gridLayout.addWidget(self.twitterCk, 0, 0, 1, 1)
+        self.clientListWidget = QtGui.QListWidget(self.socialManagerTab)
+        self.clientListWidget.setGeometry(QtCore.QRect(10, 30, 211, 391))
+        self.clientListWidget.setObjectName("clientListWidget")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/social.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tabAccountManager.addTab(self.socialManagerTab, icon1, "")
@@ -305,7 +305,7 @@ class Ui_MainWindow(object):
         self.tabManager.setTabText(self.tabManager.indexOf(self.accountManagerTab), QtGui.QApplication.translate("MainWindow", "Account Manager", None, QtGui.QApplication.UnicodeUTF8))
         self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fectch", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.followersGetter), QtGui.QApplication.translate("MainWindow", "Followers Getter", None, QtGui.QApplication.UnicodeUTF8))
-        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.3", None, QtGui.QApplication.UnicodeUTF8))
+        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.9", None, QtGui.QApplication.UnicodeUTF8))
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))

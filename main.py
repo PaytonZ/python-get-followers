@@ -25,6 +25,8 @@ Versions
 v0.1 -- 07/07/2014 - Working All Networks except Linkedin"
 v0.2 -- 07/07/2014 - File data.txt inserting data in json format
 v0.8 -- 10/07/2014 - GUI with listeners (MainGUI.py)
+v0.9 -- 11/07/2014 - GUI more funcionality (load clients in a list) (MainGUI.py)
+v0.10 -- 11/07/2014 - Helper for file management
 '''
 
 import sys

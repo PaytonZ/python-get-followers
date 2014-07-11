@@ -12,22 +12,17 @@ from twython import Twython
 from pprint import pprint
 import sys
 
+from helpers import FileHelper
+
 import webbrowser
 import BaseHTTPServer
 import urlparse
 
 def get_followers():
-	filename = "data.txt"
+	filename = 'data.txt'
 	print "Trying to read data from %s" % filename
-	try:
-		json_data=open(filename)
-		data = json.load(json_data)
-		#pprint(data)
-		print "Loaded %d groups accounts" % len(data['clients'])
-		json_data.close()
-	except:
-		print "parsing exception!"
-		sys.exit(0)
+
+	data = FileHelper().openReadOnlyJSONFileASObject(filename)
 
 	for client in data['clients']:
 

@@ -1,5 +1,6 @@
 import sys
 import json
+from helpers import FileHelper
 
 def menu():
 
@@ -46,11 +47,7 @@ def add_account(name=None, account=None):
 
 def delete_account(name=None, account=None):
 
-	filename = 'data.txt'
-
-	json_data = open(filename, "rw")
-
-	data = json.load(json_data)
+	data = FileHelper().openWriteJSONFile('data.txt')
 
 	clients = data['clients']
 
@@ -82,11 +79,8 @@ def delete_account(name=None, account=None):
 
 def delete_client(name=None):
 
-	filename = 'data.txt'
+	data = FileHelper().openWriteJSONFile('data.txt')
 
-	json_data = open(filename, 'rw')
-
-	data = json.load(json_data)
 	clients = data['clients']
 
 	if name:
@@ -110,19 +104,8 @@ def delete_client(name=None):
 	print 'Deleted client'
 
 def list_accounts(name=None):
-
-	filename = "data.txt"
-	print "Trying to read data from %s" % filename
-	try:
-		json_data=open(filename)
-		data = json.load(json_data)
-		#pprint(data)
-		print "Loaded %d Accounts" % len(data['clients'])
-		json_data.close()
-	except:
-		print "parsing exception!"
-		sys.exit()
-
+	data = FileHelper().openReadOnlyJSONFileASObject('data.txt')
+	print "Loaded %d Accounts" % len(data['clients'])
 
 	if name:
 		print "no esta hecho"
@@ -143,18 +126,8 @@ def list_accounts(name=None):
 				print '  --' + accountInfo[0] + ' : ' + accountInfo[1]
 
 def list_clients():
-
-	filename = "data.txt"
-	print "Trying to read data from %s" % filename
-	try:
-		json_data=open(filename)
-		data = json.load(json_data)
-		#pprint(data)
-		print "Loaded %d Accounts" % len(data['clients'])
-		json_data.close()
-	except:
-		print "parsing exception!"
-		sys.exit()
+	data = FileHelper().openReadOnlyJSONFileASObject('data.txt')
+	print "Loaded %d Accounts" % len(data['clients'])
 
 	for client in data['clients']:
 

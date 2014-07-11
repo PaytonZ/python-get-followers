@@ -247,16 +247,6 @@
        <attribute name="title">
         <string/>
        </attribute>
-       <widget class="QListView" name="clientListView">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>30</y>
-          <width>221</width>
-          <height>391</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="clientListLabel">
         <property name="geometry">
          <rect>
@@ -285,9 +275,9 @@
         <widget class="QPushButton" name="editBt">
          <property name="geometry">
           <rect>
-           <x>30</x>
+           <x>20</x>
            <y>370</y>
-           <width>114</width>
+           <width>141</width>
            <height>32</height>
           </rect>
          </property>
@@ -486,6 +476,16 @@
          </layout>
         </widget>
        </widget>
+       <widget class="QListWidget" name="clientListWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>211</width>
+          <height>391</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -534,7 +534,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 0.3</string>
+     <string>Version 0.9</string>
     </property>
    </widget>
   </widget>
