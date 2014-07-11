@@ -27,6 +27,8 @@ v0.2 -- 07/07/2014 - File data.txt inserting data in json format
 v0.8 -- 10/07/2014 - GUI with listeners (MainGUI.py)
 v0.9 -- 11/07/2014 - GUI more funcionality (load clients in a list) (MainGUI.py)
 v0.10 -- 11/07/2014 - Helper for file management
+v0.11 -- 11/07/2014 - Loadin followers on tableView (MainGUI.py)
+v0.12 -- 11/07/2014 - Refactor methods on getFollowers module
 '''
 
 import sys

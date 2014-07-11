@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -49,7 +49,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -534,7 +534,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 0.9</string>
+     <string>Version 0.13</string>
     </property>
    </widget>
   </widget>
@@ -552,12 +552,13 @@
      <string>Archive</string>
     </property>
     <addaction name="actionOpen_accounts_data_file"/>
-    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionSocial_Manager_GUI"/>
+    <addaction name="separator"/>
     <addaction name="actionDevelopers"/>
    </widget>
    <addaction name="menuArchive"/>
@@ -577,6 +578,11 @@
   <action name="actionDevelopers">
    <property name="text">
     <string>Developers</string>
+   </property>
+  </action>
+  <action name="actionSocial_Manager_GUI">
+   <property name="text">
+    <string>Social Manager - GUI</string>
    </property>
   </action>
  </widget>

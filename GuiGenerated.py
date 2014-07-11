@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Fri Jul 11 13:07:04 2014
+# Created: Fri Jul 11 19:43:55 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -262,15 +262,18 @@ class Ui_MainWindow(object):
         self.actionExit.setObjectName("actionExit")
         self.actionDevelopers = QtGui.QAction(MainWindow)
         self.actionDevelopers.setObjectName("actionDevelopers")
+        self.actionSocial_Manager_GUI = QtGui.QAction(MainWindow)
+        self.actionSocial_Manager_GUI.setObjectName("actionSocial_Manager_GUI")
         self.menuArchive.addAction(self.actionOpen_accounts_data_file)
-        self.menuArchive.addAction(self.actionExit)
+        self.menuAbout.addAction(self.actionSocial_Manager_GUI)
+        self.menuAbout.addSeparator()
         self.menuAbout.addAction(self.actionDevelopers)
         self.menubar.addAction(self.menuArchive.menuAction())
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabManager.setCurrentIndex(0)
-        self.tabAccountManager.setCurrentIndex(1)
+        self.tabManager.setCurrentIndex(1)
+        self.tabAccountManager.setCurrentIndex(0)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.pinterestText.clear)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.googleText.clear)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.facebookText.clear)
@@ -305,11 +308,12 @@ class Ui_MainWindow(object):
         self.tabManager.setTabText(self.tabManager.indexOf(self.accountManagerTab), QtGui.QApplication.translate("MainWindow", "Account Manager", None, QtGui.QApplication.UnicodeUTF8))
         self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fectch", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.followersGetter), QtGui.QApplication.translate("MainWindow", "Followers Getter", None, QtGui.QApplication.UnicodeUTF8))
-        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.9", None, QtGui.QApplication.UnicodeUTF8))
+        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.13", None, QtGui.QApplication.UnicodeUTF8))
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))
         self.actionExit.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
         self.actionDevelopers.setText(QtGui.QApplication.translate("MainWindow", "Developers", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionSocial_Manager_GUI.setText(QtGui.QApplication.translate("MainWindow", "Social Manager - GUI", None, QtGui.QApplication.UnicodeUTF8))
 
 import images_rc
