@@ -29,3 +29,8 @@ $ pip install requests_oauthlib
 
 Twitter requires
 $ pip install twython
+
+DEVELOPERS TOOLS
+================
+
+compileGUI.sh -> is a script that generate a python gui code from .ui files (QDesigner and QCreator format descriptor for guis)
