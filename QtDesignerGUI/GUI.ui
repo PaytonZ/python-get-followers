@@ -570,11 +570,6 @@
     <string>Open accounts data file</string>
    </property>
   </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </action>
   <action name="actionDevelopers">
    <property name="text">
     <string>Developers</string>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Fri Jul 11 19:43:55 2014
+# Created: Sat Jul 12 12:36:39 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -258,8 +258,6 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.actionOpen_accounts_data_file = QtGui.QAction(MainWindow)
         self.actionOpen_accounts_data_file.setObjectName("actionOpen_accounts_data_file")
-        self.actionExit = QtGui.QAction(MainWindow)
-        self.actionExit.setObjectName("actionExit")
         self.actionDevelopers = QtGui.QAction(MainWindow)
         self.actionDevelopers.setObjectName("actionDevelopers")
         self.actionSocial_Manager_GUI = QtGui.QAction(MainWindow)
@@ -312,7 +310,6 @@ class Ui_MainWindow(object):
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionExit.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
         self.actionDevelopers.setText(QtGui.QApplication.translate("MainWindow", "Developers", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSocial_Manager_GUI.setText(QtGui.QApplication.translate("MainWindow", "Social Manager - GUI", None, QtGui.QApplication.UnicodeUTF8))
 

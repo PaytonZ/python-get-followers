@@ -100,14 +100,6 @@ def get_twitter_followers(account):
 
 		print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
 
-		'''
-		retorno = []
-		retorno[0] = 'twitter'
-		retorno[1] = str(twitter_account)
-		retorno[2] = str(followers['followers_count'])
-		return retorno
-		'''
-		#return 'twitter' + ":" +str(twitter_account) + ":" + str(followers['followers_count'])
 		return ['twitter', str(twitter_account), str(followers['followers_count'])]
 
 def get_youtube_followers(account):

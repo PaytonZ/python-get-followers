@@ -13,6 +13,7 @@ import sys
 import json
 from helpers import FileHelper
 import getFollowers
+import accountManager
 import string
 
 
@@ -36,20 +37,29 @@ def listenerClientName(textValue):
 		mySW.ui.linkedinText.setEnabled(True)
 		mySW.ui.youtubeText.setEnabled(True)
 		mySW.ui.twitterText.setEnabled(True)
-		mySW.ui.clientNameText.setEnabled(True)
 	else:
 		mySW.ui.saveBt.setEnabled(False)
 		mySW.ui.pinterestText.setEnabled(False)
+		mySW.ui.pinterestText.clear()
 		mySW.ui.googleText.setEnabled(False)
+		mySW.ui.googleText.clear()
 		mySW.ui.facebookText.setEnabled(False)
+		mySW.ui.facebookText.clear()
 		mySW.ui.linkedinText.setEnabled(False)
+		mySW.ui.linkedinText.clear()
 		mySW.ui.youtubeText.setEnabled(False)
+		mySW.ui.youtubeText.clear()
 		mySW.ui.twitterText.setEnabled(False)
-		mySW.ui.clientNameText.setEnabled(False)
+		mySW.ui.twitterText.clear()
 
 def listenerSaveButton():
 
-	print "saving..."
+	clientName = mySW.ui.clientNameText.text()
+
+	accounts = [ mySW.ui.pinterestText.text(), mySW.ui.googleText.text() , mySW.ui.facebookText.text(), mySW.ui.linkedinText.text(), mySW.ui.youtubeText.text(), mySW.ui.twitterText.text() ]
+
+	if clientName:
+		accountManager.create_account_group(clientName, accounts, False)
 
 '''
 SOCIAL AREA LISTENERS

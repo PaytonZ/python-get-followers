@@ -34,12 +34,45 @@ def menu():
 		num = int(selection)
 		switch[num]()
 
-def create_account_group(name=None, accounts=None):
+def create_account_group(name=None, accounts=None, console=True):
+
+	stream = FileHelper().openWriteJSONFile('data.txt')
+
+	data = FileHelper().parseJSONDataToJSONObject(stream)
 
 	if name:
 		print 'crea la cuenta'
-	else:
-		print 'pregunta'
+
+		clients = data['clients']
+
+		if name not in clients:
+			clients[name] = accounts
+
+			'''
+			TODO Write into a file
+			'''
+			#FileHelper().writeJSONDataToAFile(stream, data)
+
+	elif console:
+		clientName = raw_input('Insert the clien name: ')
+
+		twitter = raw_input('Insert the twitter account (left blank if you dont have one): ')
+		youtube = raw_input('Insert the youtube account (left blank if you dont have one): ')
+		googleplus = raw_input('Insert the googleplus account (left blank if you dont have one): ')
+		linkedin = raw_input('Insert the linkedin account (left blank if you dont have one): ')
+		facebook = raw_input('Insert the facebook account (left blank if you dont have one): ')
+		pinterest = raw_input('Insert the pinterest account (left blank if you dont have one): ')
+
+		if clientName:
+			clients = data['clients']
+
+			if clientName not in clients:
+				clients[clientName] = [ twitter, youtube, googleplus, linkedin, facebook, pinterest ]
+
+				'''
+				TODO Write into a file
+				'''
+				#FileHelper().writeJSONDataToAFile(stream, data)
 
 def add_account(name=None, account=None):
 
@@ -47,7 +80,9 @@ def add_account(name=None, account=None):
 
 def delete_account(name=None, account=None):
 
-	data = FileHelper().openWriteJSONFile('data.txt')
+	stream = FileHelper().openWriteJSONFile('data.txt')
+
+	data = FileHelper().parseJSONDataToJSONObject(stream)
 
 	clients = data['clients']
 
@@ -72,8 +107,7 @@ def delete_account(name=None, account=None):
 						break
 				break
 
-	#json.dump(data, json_data)
-	json_data.close()
+	#FileHelper().writeJSONDataToAStream('data.txt', data)
 
 	print '**Deleted account**'
 
@@ -98,8 +132,7 @@ def delete_client(name=None):
 						break
 				break
 
-	json.dump(data, json_data)
-	json_data.close()
+	#FileHelper().writeJSONDataToAStream('data.txt', data)
 
 	print 'Deleted client'
 

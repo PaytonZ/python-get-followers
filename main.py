@@ -29,6 +29,7 @@ v0.9 -- 11/07/2014 - GUI more funcionality (load clients in a list) (MainGUI.py)
 v0.10 -- 11/07/2014 - Helper for file management
 v0.11 -- 11/07/2014 - Loadin followers on tableView (MainGUI.py)
 v0.12 -- 11/07/2014 - Refactor methods on getFollowers module
+v0.13 -- 12/07/2014 - helpers methods to write a file
 '''
 
 import sys
@@ -40,7 +41,7 @@ print "=========================================================="
 print "Python Script for getting Followers in Social Networks"
 print "The Script is given AS IS, dont blame the dev if it doesn't work"
 print "If you're not agree , close this script immediately"
-print "v0.8 -- 10/07/2014 - GUI with listeners (MainGUI.py)"
+print "v0.13 -- 12/07/2014 - helpers methods to write a file"
 print "=========================================================="
 
 print '*****SOCIAL NETWORK MANAGER*****'
