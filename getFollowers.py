@@ -59,22 +59,13 @@ def get_followers():
 
 def fetch_for_all_accounts(accountInfo):
 
-	switch = {
-		0 : get_twitter_followers,
-		1 : get_youtube_followers,
-		2 : get_google_followers,
-		3 : get_facebook_followers,
-		4 : get_pinterest_followers,
-		5 : get_linkedin_followers
-	}
-
 	switchSting = {
 		'twitter' : get_twitter_followers,
 		'youtube' : get_youtube_followers,
 		'googleplus' : get_google_followers,
 		'facebook' : get_facebook_followers,
 		'pinterest' : get_pinterest_followers,
-		#'linkedin' : get_linkedin_followers
+		'linkedin' : get_linkedin_followers
 	}
 	
 	account = accountInfo.split(':')
@@ -177,7 +168,6 @@ def get_linkedin_followers(account):
 		auth = linkedin.LinkedInAuthentication(linkedin_api_key, linkedin_api_secret, RETURN_URL, linkedin.PERMISSIONS.enums.values())
 
 		application = linkedin.LinkedInApplication(authentication=auth)
-		#print auth.authorization_url
 
 		# Esto crea un pequenho servidor local para recuperar el codigo de autenticacion
 		# antes de que expire el tiempo para obtener el token
@@ -185,9 +175,14 @@ def get_linkedin_followers(account):
 
 		tokenObtenido = _wait_for_user_to_enter_browser(application)
 
-		print "El token del infierno %s" % str(tokenObtenido) # El jodido token vuelve como None :/
 		application = linkedin.LinkedInApplication(token=tokenObtenido)
-		print application.get_profile()
+		try:
+			assert application.authentication and application.authentication.token, 'Application bad built'
+			info = application.get_company_updates(1035, params={'count': 2})
+			print info
+			return ['linkedin', info ]
+		except:
+			print "error llamando a linkedin"
 
 def _wait_for_user_to_enter_browser(app):
 	class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -196,8 +191,9 @@ def _wait_for_user_to_enter_browser(app):
 			if len(p) > 1:
 				params = urlparse.parse_qs(p[1], True, True)
 				app.authentication.authorization_code = params['code'][0]
-				return app.authentication.get_access_token()
+				app.authentication.get_access_token()
 
 	server_address = ('', 8000)
 	httpd = BaseHTTPServer.HTTPServer(server_address, MyHandler)
 	httpd.handle_request()
+	return app.authentication.token
