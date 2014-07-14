@@ -36,9 +36,9 @@ def menu():
 
 def create_account_group(name=None, accounts=None, console=True):
 
-	stream = FileHelper().openWriteJSONFile('data.txt')
+	fileHelper = FileHelper()
 
-	data = FileHelper().parseJSONDataToJSONObject(stream)
+	data = fileHelper.openReadOnlyJSONFileASObject('data.txt')
 
 	if name:
 		print 'crea la cuenta'
@@ -48,31 +48,26 @@ def create_account_group(name=None, accounts=None, console=True):
 		if name not in clients:
 			clients[name] = accounts
 
-			'''
-			TODO Write into a file
-			'''
-			#FileHelper().writeJSONDataToAFile(stream, data)
+			fileHelper.writeJSONDataToAFile('data.txt', data)
 
 	elif console:
 		clientName = raw_input('Insert the clien name: ')
 
-		twitter = raw_input('Insert the twitter account (left blank if you dont have one): ')
-		youtube = raw_input('Insert the youtube account (left blank if you dont have one): ')
-		googleplus = raw_input('Insert the googleplus account (left blank if you dont have one): ')
-		linkedin = raw_input('Insert the linkedin account (left blank if you dont have one): ')
-		facebook = raw_input('Insert the facebook account (left blank if you dont have one): ')
-		pinterest = raw_input('Insert the pinterest account (left blank if you dont have one): ')
+		twitter = 'twitter:' + raw_input('Insert the twitter account (left blank if you dont have one): ')
+		youtube = 'youtube:' + raw_input('Insert the youtube account (left blank if you dont have one): ')
+		googleplus = 'googleplus:' + raw_input('Insert the googleplus account (left blank if you dont have one): ')
+		linkedin = 'linkedin:' + raw_input('Insert the linkedin account (left blank if you dont have one): ')
+		facebook = 'facebook:' + raw_input('Insert the facebook account (left blank if you dont have one): ')
+		pinterest = 'pinterest:' + raw_input('Insert the pinterest account (left blank if you dont have one): ')
 
 		if clientName:
 			clients = data['clients']
 
 			if clientName not in clients:
-				clients[clientName] = [ twitter, youtube, googleplus, linkedin, facebook, pinterest ]
+				i = len(clients)
+				clients.append({ 'name':clientName, 'accounts':[ twitter, youtube, googleplus, linkedin, facebook, pinterest ]})
 
-				'''
-				TODO Write into a file
-				'''
-				#FileHelper().writeJSONDataToAFile(stream, data)
+				fileHelper.writeJSONDataToAFile('data.txt', data)
 
 def add_account(name=None, account=None):
 
@@ -80,9 +75,9 @@ def add_account(name=None, account=None):
 
 def delete_account(name=None, account=None):
 
-	stream = FileHelper().openWriteJSONFile('data.txt')
+	fileHelper = FileHelper()
 
-	data = FileHelper().parseJSONDataToJSONObject(stream)
+	data = fileHelper.openReadOnlyJSONFileASObject('data.txt')
 
 	clients = data['clients']
 
@@ -104,37 +99,40 @@ def delete_account(name=None, account=None):
 				for ac in range(0, len(accounts)):
 					if client['accounts'][ac].split(':')[0] == cuenta:
 						client['accounts'].pop(ac)
+						print 'Deleted account: ' + cuenta
 						break
 				break
 
-	#FileHelper().writeJSONDataToAStream('data.txt', data)
+	fileHelper.writeJSONDataToAFile('data.txt', data)
 
 	print '**Deleted account**'
 
 def delete_client(name=None):
 
-	data = FileHelper().openWriteJSONFile('data.txt')
+	fileHelper = FileHelper()
+
+	data = fileHelper.openReadOnlyJSONFileASObject('data.txt')
 
 	clients = data['clients']
 
 	if name:
 		for client in clients:
-			if client == name:
+			if client['name'] == name:
 				clients.remove(name)
+				print 'Removed client: ' + name
 				break
 	else:
 		nombre = raw_input("Write the client account owner: ")
+		i = 0
 		for client in clients:
-			if client == nombre:
-				for account in client['accounts']:
-					if account == cuenta:
-						client['accounts'].remove(cuenta)
-						break
+			if client['name'] == nombre:
+				cli = clients[i]
+				clients.remove(cli)
+				print 'Removed client: ' + nombre
 				break
+			i = i + 1
 
-	#FileHelper().writeJSONDataToAStream('data.txt', data)
-
-	print 'Deleted client'
+	fileHelper.writeJSONDataToAFile('data.txt', data)
 
 def list_accounts(name=None):
 	data = FileHelper().openReadOnlyJSONFileASObject('data.txt')

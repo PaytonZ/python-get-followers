@@ -13,13 +13,13 @@ class FileHelper:
 	Returns an object from file in json format
 	'''
 	def openReadOnlyJSONFileASObject(self, fileName):
-
+		
 		json_data = self.openJSONFile(fileName, 'r')
 
 		data = self.parseJSONDataToJSONObject(json_data)
 
 		self.closeStream(json_data)
-
+		
 		return data
 
 	'''
@@ -28,7 +28,7 @@ class FileHelper:
 	'''
 	def openWriteJSONFile(self, fileName):
 
-		return self.openJSONFile(fileName, 'rw')
+		return self.openJSONFile(fileName, 'w')
 
 	'''
 	Write data object into a file named fileName
