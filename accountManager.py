@@ -69,9 +69,60 @@ def create_account_group(name=None, accounts=None, console=True):
 
 				fileHelper.writeJSONDataToAFile('data.txt', data)
 
-def add_account(name=None, account=None):
+def add_account(name=None, account=None, dataAccount=None):
+	fileHelper = FileHelper()
 
-	print 'comming soon'
+	data = fileHelper.openReadOnlyJSONFileASObject('data.txt')
+
+	clients = data['clients']
+
+	if name and account and dataAccount:
+		for client in clients:
+			if client['name'] == name:
+
+				numCuentas = len(client['accounts'])
+
+				if numCuentas == 0:
+					client['accounts'].append(account+':'+dataAccount)
+
+					fileHelper.writeJSONDataToAFile('data.txt', data)
+					print 'Account added'
+				else:
+					for ac in range(0, numCuentas):
+						cuentas = client['accounts']
+
+						if cuentas[ac].split(':')[0] == account:
+							cuentas[ac] = dataAccount
+						else:
+							cuentas.append(account+':'+dataAccount)
+
+						fileHelper.writeJSONDataToAFile('data.txt', data)
+	else:
+		nombre = raw_input("Write the client account owner: ")
+		cuenta = raw_input("Write the account name: ")
+		accountData = raw_input("Write the account data: ")
+
+		for client in clients:
+			if client['name'] == nombre:
+
+				numCuentas = len(client['accounts'])
+
+				if numCuentas == 0:
+					client['accounts'].append(cuenta+':'+accountData)
+
+					fileHelper.writeJSONDataToAFile('data.txt', data)
+					print 'Account added'
+				else:
+					for ac in range(0, numCuentas):
+						cuentas = client['accounts']
+
+						if cuentas[ac].split(':')[0] == cuenta:
+							cuentas[ac] = accountData
+						else:
+							cuentas.append(cuenta+':'+accountData)
+
+						fileHelper.writeJSONDataToAFile('data.txt', data)
+						print 'Account added'
 
 def delete_account(name=None, account=None):
 
@@ -83,10 +134,13 @@ def delete_account(name=None, account=None):
 
 	if name and account:
 		for client in clients:
-			if client == name:
-				for ac in client['accounts']:
-					if ac == account:
-						client['accounts'].remove(cuenta)
+			if client['name'] == name:
+				accounts = client['accounts']
+				for ac in range(0, len(accounts)):
+					if client['accounts'][ac].split(':')[0] == account:
+						client['accounts'].pop(ac)
+
+						fileHelper.writeJSONDataToAFile('data.txt', data)
 						break
 				break
 	else:
@@ -99,13 +153,11 @@ def delete_account(name=None, account=None):
 				for ac in range(0, len(accounts)):
 					if client['accounts'][ac].split(':')[0] == cuenta:
 						client['accounts'].pop(ac)
+
+						fileHelper.writeJSONDataToAFile('data.txt', data)
 						print 'Deleted account: ' + cuenta
 						break
 				break
-
-	fileHelper.writeJSONDataToAFile('data.txt', data)
-
-	print '**Deleted account**'
 
 def delete_client(name=None):
 
@@ -116,11 +168,16 @@ def delete_client(name=None):
 	clients = data['clients']
 
 	if name:
+		i = 0
 		for client in clients:
 			if client['name'] == name:
-				clients.remove(name)
+				cli = clients[i]
+				clients.remove(cli)
+
+				fileHelper.writeJSONDataToAFile('data.txt', data)
 				print 'Removed client: ' + name
 				break
+			i = i + 1
 	else:
 		nombre = raw_input("Write the client account owner: ")
 		i = 0
@@ -128,11 +185,11 @@ def delete_client(name=None):
 			if client['name'] == nombre:
 				cli = clients[i]
 				clients.remove(cli)
+
+				fileHelper.writeJSONDataToAFile('data.txt', data)
 				print 'Removed client: ' + nombre
 				break
 			i = i + 1
-
-	fileHelper.writeJSONDataToAFile('data.txt', data)
 
 def list_accounts(name=None):
 	data = FileHelper().openReadOnlyJSONFileASObject('data.txt')

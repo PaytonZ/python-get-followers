@@ -72,7 +72,25 @@ def listenerCheckBoxes():
 
 def listenerRemoveAccounts():
 
-	print "deleting..."
+	item = mySW.ui.clientListWidget.currentItem()
+	name = item.text()
+	accounts = []
+
+	if mySW.ui.twitterCk.isChecked():
+		accounts.append('twitter')
+	elif mySW.ui.googleCk.isChecked():
+		accounts.append('googleplus')
+	elif mySW.ui.facebookCk.isChecked():
+		accounts.append('facebook')
+	elif mySW.ui.pinterestCk.isChecked():
+		accounts.append('pinterest')
+	elif mySW.ui.youtubeCk.isChecked():
+		accounts.append('youtube')
+	elif mySW.ui.linkedin.isChecked():
+		accounts.append('linkedin')
+
+	for account in accounts:
+		accountManager.delete_account(name, account)
 
 def listenerEditInfo():
 
@@ -122,13 +140,31 @@ def listenerOnClientClicked(item):
 			if client['name'] == clientSelected:
 				accounts = client['accounts']
 
+				mySW.ui.twitterText_2.clear()
+				mySW.ui.youtubeText_2.clear()
+				mySW.ui.googleText_2.clear()
+				mySW.ui.pinterestText_2.clear()
+				mySW.ui.facebookText_2.clear()
+				mySW.ui.linkedinText_2.clear()
+
 				if len(accounts) > 0:
-					mySW.ui.twitterText_2.setText(accounts[0])
-					mySW.ui.youtubeText_2.setText(accounts[1])
-					mySW.ui.googleText_2.setText(accounts[2])
-					mySW.ui.pinterestText_2.setText(accounts[3])
-					mySW.ui.facebookText_2.setText(accounts[4])
-					mySW.ui.linkedinText_2.setText(accounts[5])
+					for account in accounts:
+
+						accountName = account.split(':')[0]
+						data = account.split(':')[1]
+
+						if accountName == 'twitter':
+							mySW.ui.twitterText_2.setText(data)
+						elif accountName == 'youtube':
+							mySW.ui.youtubeText_2.setText(data)
+						elif accountName == 'googleplus':
+							mySW.ui.googleText_2.setText(data)
+						elif accountName == 'pinterest':
+							mySW.ui.pinterestText_2.setText(data)
+						elif accountName == 'facebook':
+							mySW.ui.facebookText_2.setText(data)
+						elif accountName == 'linkedin':
+							mySW.ui.linkedinText_2.setText(data)
 
 '''
 GET FOLLOWERS AREA LISTENERS
