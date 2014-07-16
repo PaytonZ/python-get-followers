@@ -76,7 +76,7 @@ def add_account(name=None, account=None, dataAccount=None):
 
 	clients = data['clients']
 
-	if name and account and dataAccount:
+	if name and account:
 		for client in clients:
 			if client['name'] == name:
 
@@ -86,17 +86,24 @@ def add_account(name=None, account=None, dataAccount=None):
 					client['accounts'].append(account+':'+dataAccount)
 
 					fileHelper.writeJSONDataToAFile('data.txt', data)
-					print 'Account added'
+					print 'Account added **'
 				else:
+					cuentas = client['accounts']
+					exist = False
+
 					for ac in range(0, numCuentas):
-						cuentas = client['accounts']
 
 						if cuentas[ac].split(':')[0] == account:
-							cuentas[ac] = dataAccount
-						else:
-							cuentas.append(account+':'+dataAccount)
+							exist = True
+							break
 
-						fileHelper.writeJSONDataToAFile('data.txt', data)
+					if exist:
+						cuentas[ac] = account+':'+dataAccount
+					else:
+						cuentas.append(account+':'+dataAccount)
+
+					fileHelper.writeJSONDataToAFile('data.txt', data)
+					print 'Account added ' + name + ' '+ account + ' '+dataAccount
 	else:
 		nombre = raw_input("Write the client account owner: ")
 		cuenta = raw_input("Write the account name: ")
@@ -111,18 +118,25 @@ def add_account(name=None, account=None, dataAccount=None):
 					client['accounts'].append(cuenta+':'+accountData)
 
 					fileHelper.writeJSONDataToAFile('data.txt', data)
-					print 'Account added'
+					print 'Account added **'
 				else:
+
+					cuentas = client['accounts']
+					exist = False
+
 					for ac in range(0, numCuentas):
-						cuentas = client['accounts']
 
 						if cuentas[ac].split(':')[0] == cuenta:
-							cuentas[ac] = accountData
-						else:
-							cuentas.append(cuenta+':'+accountData)
+							exist = True
+							break
 
-						fileHelper.writeJSONDataToAFile('data.txt', data)
-						print 'Account added'
+					if exist:
+						cuentas[ac] = account+':'+dataAccount
+					else:
+						cuentas.append(account+':'+dataAccount)
+
+					fileHelper.writeJSONDataToAFile('data.txt', data)
+					print 'Account added'
 
 def delete_account(name=None, account=None):
 

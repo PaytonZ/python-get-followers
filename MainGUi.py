@@ -20,10 +20,14 @@ import string
 oldData = { 'twitter' : '',
 		 	'facebook' : '',
 		 	'linkedin' : '',
-		 	'google' : '',
+		 	'googleplus' : '',
 		 	'pinterest' : '',
 		 	'youtube' : ''
 		}
+
+dicCk = {}
+
+dicLt = {}
 
 '''
 CLIENT AREA LISTENERS
@@ -78,19 +82,23 @@ def listenerRemoveAccounts():
 
 	if mySW.ui.twitterCk.isChecked():
 		accounts.append('twitter')
-	elif mySW.ui.googleCk.isChecked():
+	if mySW.ui.googleCk.isChecked():
 		accounts.append('googleplus')
-	elif mySW.ui.facebookCk.isChecked():
+	if mySW.ui.facebookCk.isChecked():
 		accounts.append('facebook')
-	elif mySW.ui.pinterestCk.isChecked():
+	if mySW.ui.pinterestCk.isChecked():
 		accounts.append('pinterest')
-	elif mySW.ui.youtubeCk.isChecked():
+	if mySW.ui.youtubeCk.isChecked():
 		accounts.append('youtube')
-	elif mySW.ui.linkedin.isChecked():
+	if mySW.ui.linkedinCk.isChecked():
 		accounts.append('linkedin')
 
 	for account in accounts:
 		accountManager.delete_account(name, account)
+
+		dicCk[account].toggle()
+		dicLt[account].clear()
+
 
 def listenerEditInfo():
 
@@ -106,9 +114,13 @@ def listenerEditInfo():
 		mySW.ui.linkedinText_2.setEnabled(False)
 
 		for account in oldData.keys():
-			print oldData[account]
 
-		print 'saving....'
+			item = mySW.ui.clientListWidget.currentItem()
+			name = item.text()
+
+			dataAccount = dicLt[account].text()
+
+			accountManager.add_account(name, account, dataAccount)
 	else:
 		mySW.ui.editBt.setText('Save edited info')
 
@@ -122,12 +134,11 @@ def listenerEditInfo():
 		oldData['twitter'] = mySW.ui.twitterText_2.text()
 		oldData['facebook'] = mySW.ui.facebookText_2.text()
 		oldData['linkedin'] = mySW.ui.linkedinText_2.text()
-		oldData['google'] = mySW.ui.googleText_2.text()
+		oldData['googleplus'] = mySW.ui.googleText_2.text()
 		oldData['pinterest'] = mySW.ui.pinterestText_2.text()
 		oldData['youtube'] = mySW.ui.youtubeText_2.text()
 
 def listenerOnClientClicked(item):
-	print "Item: " + str(item.text())
 
 	if item:
 
@@ -169,7 +180,6 @@ def listenerOnClientClicked(item):
 '''
 GET FOLLOWERS AREA LISTENERS
 '''
-
 def listenerFetchButton():
 	print "fetching"
 
@@ -208,6 +218,27 @@ def loadClientList():
 	for client in data['clients']:
 		mySW.ui.clientListWidget.addItem(client['name'])
 
+def configureDicctionaries():
+	global dicCk
+	dicCk = {
+		'twitter' : mySW.ui.twitterCk,
+		'googleplus' : mySW.ui.googleCk,
+		'facebook' : mySW.ui.facebookCk,
+		'pinterest' : mySW.ui.pinterestCk,
+		'youtube' : mySW.ui.youtubeCk,
+		'linkedin' : mySW.ui.linkedinCk
+	}
+
+	global dicLt
+	dicLt = {
+		'twitter' : mySW.ui.twitterText_2,
+		'googleplus' : mySW.ui.googleText_2,
+		'facebook' : mySW.ui.facebookText_2,
+		'pinterest' : mySW.ui.pinterestText_2,
+		'youtube' : mySW.ui.youtubeText_2,
+		'linkedin' : mySW.ui.linkedinText_2
+	}
+
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
 		super(ControlMainWindow, self).__init__(parent)
@@ -216,6 +247,7 @@ class ControlMainWindow(QtGui.QMainWindow):
 
 	def customSetUp(self):
 
+		configureDicctionaries()
 		loadClientList()
 
 		#Listener for Client name text field

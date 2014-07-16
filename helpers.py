@@ -52,9 +52,10 @@ class FileHelper:
 			json.dump(data, stream)
 		except:
 			noError = False
+			self.closeStream(stream)
 			print "Error writting file"
 
-		return noError and self.closeStream(stream)
+		return self.closeStream(stream) and noError
 
 	'''
 	Parse a stream from a file in json format to a object
