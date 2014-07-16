@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -534,7 +534,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 0.13</string>
+     <string>Version 0.15</string>
     </property>
    </widget>
   </widget>

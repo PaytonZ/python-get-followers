@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Sat Jul 12 12:36:39 2014
+# Created: Wed Jul 16 15:35:08 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -270,7 +270,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabManager.setCurrentIndex(1)
+        self.tabManager.setCurrentIndex(0)
         self.tabAccountManager.setCurrentIndex(0)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.pinterestText.clear)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.googleText.clear)
@@ -306,7 +306,7 @@ class Ui_MainWindow(object):
         self.tabManager.setTabText(self.tabManager.indexOf(self.accountManagerTab), QtGui.QApplication.translate("MainWindow", "Account Manager", None, QtGui.QApplication.UnicodeUTF8))
         self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fectch", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.followersGetter), QtGui.QApplication.translate("MainWindow", "Followers Getter", None, QtGui.QApplication.UnicodeUTF8))
-        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.13", None, QtGui.QApplication.UnicodeUTF8))
+        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.15", None, QtGui.QApplication.UnicodeUTF8))
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))

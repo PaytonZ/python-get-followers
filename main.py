@@ -31,6 +31,7 @@ v0.11 -- 11/07/2014 - Loadin followers on tableView (MainGUI.py)
 v0.12 -- 11/07/2014 - Refactor methods on getFollowers module
 v0.13 -- 12/07/2014 - helpers methods to write a file
 v0.14 -- 12/07/2014 - linkedin working
+v0.15 -- 16/07/2014 - account management full working
 '''
 
 import sys
