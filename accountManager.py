@@ -40,15 +40,22 @@ def create_account_group(name=None, accounts=None, console=True):
 
 	data = fileHelper.openReadOnlyJSONFileASObject('data.txt')
 
-	if name:
-		print 'crea la cuenta'
+	exist = False
 
+	if name:
 		clients = data['clients']
 
-		if name not in clients:
-			clients[name] = accounts
+		for client in clients:
+			if client['name'] == name:
+				exist = True
+				break
 
-			fileHelper.writeJSONDataToAFile('data.txt', data)
+		if not exist:
+			clients.append({ 'name':name, 'accounts':accounts })
+
+		fileHelper.writeJSONDataToAFile('data.txt', data)
+
+		return not exist
 
 	elif console:
 		clientName = raw_input('Insert the clien name: ')
@@ -63,11 +70,17 @@ def create_account_group(name=None, accounts=None, console=True):
 		if clientName:
 			clients = data['clients']
 
-			if clientName not in clients:
-				i = len(clients)
+			for client in clients:
+				if client['name'] == name:
+					exist = True
+					break
+				
+			if not exist:
 				clients.append({ 'name':clientName, 'accounts':[ twitter, youtube, googleplus, linkedin, facebook, pinterest ]})
 
-				fileHelper.writeJSONDataToAFile('data.txt', data)
+			fileHelper.writeJSONDataToAFile('data.txt', data)
+
+		return not exist
 
 def add_account(name=None, account=None, dataAccount=None):
 	fileHelper = FileHelper()

@@ -60,7 +60,7 @@ def listenerSaveButton():
 
 	clientName = mySW.ui.clientNameText.text()
 
-	accounts = [ mySW.ui.pinterestText.text(), mySW.ui.googleText.text() , mySW.ui.facebookText.text(), mySW.ui.linkedinText.text(), mySW.ui.youtubeText.text(), mySW.ui.twitterText.text() ]
+	accounts = [ 'pinterest:'+mySW.ui.pinterestText.text(), 'googleplus:'+mySW.ui.googleText.text() , 'facebook:'+mySW.ui.facebookText.text(), 'linkedin:'+mySW.ui.linkedinText.text(), 'youtube:'+mySW.ui.youtubeText.text(), 'twitter:'+mySW.ui.twitterText.text() ]
 
 	if clientName:
 		accountManager.create_account_group(clientName, accounts, False)

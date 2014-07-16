@@ -99,13 +99,10 @@ def get_youtube_followers(account):
 
 	if account[0] == 'youtube':
 		youtube_api = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=%s&key="
-		#channel_id = "UCjKOqskq9R0LUTzA-Lj6Wmg"
-		#channel_id = "UCuNY3eeP2gACgmorxbpxwuQ"
 		channel_id = account[1]
 		youtube_key = "AIzaSyD-e27-f9op5r1POt3bMWisERu-yrl1WBU"
 		final_youtube_url = youtube_api % channel_id  + youtube_key
 		data = json.load(urllib2.urlopen(final_youtube_url))
-		#decoded = json.loads(data)
 		 
 		print "Youtube followers of %s :" % channel_id  + str(data['items'][0]['statistics']['subscriberCount'])
 
@@ -117,7 +114,6 @@ def get_google_followers(account):
 
 	if account[0] == 'googleplus':
 		googleplusapi = "https://www.googleapis.com/plus/v1/people/%s?key="
-		#id_googleplus = "113551191017950459231"
 		id_googleplus = account[1]
 		youtube_key = "AIzaSyD-e27-f9op5r1POt3bMWisERu-yrl1WBU"
 		google_plus_final = googleplusapi % id_googleplus + youtube_key
@@ -132,7 +128,6 @@ def get_facebook_followers(account):
 	
 	if account[0] == 'facebook':
 		facebook_api = "http://graph.facebook.com/%s"
-		#facebook_id = "portal.baquia"
 		facebook_id = account[1]
 		facebook_final = facebook_api % facebook_id
 		data = json.load(urllib2.urlopen(facebook_final))
@@ -147,7 +142,6 @@ def get_pinterest_followers(account):
 	if account[0] == 'pinterest':
 		pinterest_api_token = "MTQzMTU5NDozODY4ODc1NjE2NDcyNTY3NDU6NjU1MzV8MTQwNDc1OTM3NjoyNTkyMDAwLS1iZDM3NzU2NTVlNWViNTc1MjVhMDdkMzc2MjBjMmFmNQ=="
 		pinterest_url = "https://api.pinterest.com/v3/users/%s/?access_token="
-		#pinterest_user = "baquia"
 		pinterest_user = account[1]
 		pinterest_final_url = pinterest_url % pinterest_user + pinterest_api_token
 		data = json.load(urllib2.urlopen(pinterest_final_url))
@@ -180,7 +174,7 @@ def get_linkedin_followers(account):
 			assert application.authentication and application.authentication.token, 'Application bad built'
 			info = application.get_company_updates(1035, params={'count': 2})
 			print info
-			return ['linkedin', info ]
+			return ['linkedin', '', 'in testing' ]
 		except:
 			print "error llamando a linkedin"
 
