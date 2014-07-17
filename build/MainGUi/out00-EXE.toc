@@ -1,0 +1,9 @@
+('C:\\Users\\Daniel\\Documents\\GitHub\\python-get-followers\\build\\MainGUi\\MainGUi.exe',
+ False,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1405593386L)
