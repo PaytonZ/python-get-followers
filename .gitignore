@@ -1,2 +1,3 @@
 # Ignore python bytecode compiled files
 *.pyc
+.DS_Store

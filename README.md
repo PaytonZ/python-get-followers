@@ -1,7 +1,7 @@
 python-get-followers
 ====================
 
-Program that tries to automatize the process to get the number of followers of certain social networks
+Program that tries to automate the process to get the number of followers of certain social networks
 
 "Should" be compatible with (list below) and have a 'good' way to manage accounts
 *   Facebook
@@ -15,7 +15,7 @@ REQUIRED MODULES
 ================
 
 PySide 1.2.1 
-	should be enought for windows
+	should be enough for Windows
 	or
 	go to http://qt-project.org/wiki/Get-PySide for other platforms
 
