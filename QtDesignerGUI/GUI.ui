@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>747</width>
-    <height>612</height>
+    <width>770</width>
+    <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -482,8 +482,21 @@
           <x>10</x>
           <y>30</y>
           <width>211</width>
-          <height>391</height>
+          <height>341</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteClientButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>390</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Delete Client</string>
         </property>
        </widget>
       </widget>
@@ -506,7 +519,7 @@
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
       <property name="sortingEnabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="fetchBt">
@@ -519,7 +532,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Fectch</string>
+       <string>Fetch</string>
       </property>
      </widget>
     </widget>
@@ -534,20 +547,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 0.15</string>
+     <string>Version 0.16</string>
     </property>
    </widget>
-   <widget class="QLabel" name="versionGUI_2">
+   <widget class="QLabel" name="devTeam">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>620</x>
       <y>550</y>
-      <width>91</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>BSoD Software</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;BSoD Software&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -556,7 +569,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>747</width>
+     <width>770</width>
      <height>20</height>
     </rect>
    </property>
@@ -565,6 +578,7 @@
      <string>Archive</string>
     </property>
     <addaction name="actionOpen_accounts_data_file"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -585,12 +599,17 @@
   </action>
   <action name="actionDevelopers">
    <property name="text">
-    <string>Developers</string>
+    <string>About BSoD Software</string>
    </property>
   </action>
   <action name="actionSocial_Manager_GUI">
    <property name="text">
     <string>Social Manager - GUI</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>

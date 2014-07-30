@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Wed Jul 16 15:35:08 2014
+# Created: Wed Jul 30 18:05:38 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(747, 612)
+        MainWindow.resize(770, 626)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabManager = QtGui.QTabWidget(self.centralwidget)
@@ -224,8 +224,11 @@ class Ui_MainWindow(object):
         self.twitterCk.setObjectName("twitterCk")
         self.gridLayout.addWidget(self.twitterCk, 0, 0, 1, 1)
         self.clientListWidget = QtGui.QListWidget(self.socialManagerTab)
-        self.clientListWidget.setGeometry(QtCore.QRect(10, 30, 211, 391))
+        self.clientListWidget.setGeometry(QtCore.QRect(10, 30, 211, 341))
         self.clientListWidget.setObjectName("clientListWidget")
+        self.deleteClientButton = QtGui.QPushButton(self.socialManagerTab)
+        self.deleteClientButton.setGeometry(QtCore.QRect(10, 390, 211, 31))
+        self.deleteClientButton.setObjectName("deleteClientButton")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/social.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tabAccountManager.addTab(self.socialManagerTab, icon1, "")
@@ -235,7 +238,7 @@ class Ui_MainWindow(object):
         self.tableView = QtGui.QTableView(self.followersGetter)
         self.tableView.setGeometry(QtCore.QRect(10, 10, 691, 411))
         self.tableView.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        self.tableView.setSortingEnabled(False)
+        self.tableView.setSortingEnabled(True)
         self.tableView.setObjectName("tableView")
         self.fetchBt = QtGui.QPushButton(self.followersGetter)
         self.fetchBt.setGeometry(QtCore.QRect(210, 430, 291, 61))
@@ -244,9 +247,12 @@ class Ui_MainWindow(object):
         self.versionGUI = QtGui.QLabel(self.centralwidget)
         self.versionGUI.setGeometry(QtCore.QRect(10, 550, 81, 16))
         self.versionGUI.setObjectName("versionGUI")
+        self.devTeam = QtGui.QLabel(self.centralwidget)
+        self.devTeam.setGeometry(QtCore.QRect(620, 550, 101, 20))
+        self.devTeam.setObjectName("devTeam")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtGui.QMenuBar()
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 747, 22))
+        self.menubar = QtGui.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 770, 20))
         self.menubar.setObjectName("menubar")
         self.menuArchive = QtGui.QMenu(self.menubar)
         self.menuArchive.setObjectName("menuArchive")
@@ -262,7 +268,10 @@ class Ui_MainWindow(object):
         self.actionDevelopers.setObjectName("actionDevelopers")
         self.actionSocial_Manager_GUI = QtGui.QAction(MainWindow)
         self.actionSocial_Manager_GUI.setObjectName("actionSocial_Manager_GUI")
+        self.actionExit = QtGui.QAction(MainWindow)
+        self.actionExit.setObjectName("actionExit")
         self.menuArchive.addAction(self.actionOpen_accounts_data_file)
+        self.menuArchive.addAction(self.actionExit)
         self.menuAbout.addAction(self.actionSocial_Manager_GUI)
         self.menuAbout.addSeparator()
         self.menuAbout.addAction(self.actionDevelopers)
@@ -271,7 +280,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabManager.setCurrentIndex(0)
-        self.tabAccountManager.setCurrentIndex(0)
+        self.tabAccountManager.setCurrentIndex(1)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.pinterestText.clear)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.googleText.clear)
         QtCore.QObject.connect(self.cancelBt, QtCore.SIGNAL("clicked()"), self.facebookText.clear)
@@ -303,14 +312,17 @@ class Ui_MainWindow(object):
         self.youtubeLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Youtube account:", None, QtGui.QApplication.UnicodeUTF8))
         self.twitterLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Twitter account:", None, QtGui.QApplication.UnicodeUTF8))
         self.linkedinLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Linkedin account:", None, QtGui.QApplication.UnicodeUTF8))
+        self.deleteClientButton.setText(QtGui.QApplication.translate("MainWindow", "Delete Client", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.accountManagerTab), QtGui.QApplication.translate("MainWindow", "Account Manager", None, QtGui.QApplication.UnicodeUTF8))
-        self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fectch", None, QtGui.QApplication.UnicodeUTF8))
+        self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fetch", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.followersGetter), QtGui.QApplication.translate("MainWindow", "Followers Getter", None, QtGui.QApplication.UnicodeUTF8))
-        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.15", None, QtGui.QApplication.UnicodeUTF8))
+        self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "Version 0.16", None, QtGui.QApplication.UnicodeUTF8))
+        self.devTeam.setText(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">BSoD Software</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDevelopers.setText(QtGui.QApplication.translate("MainWindow", "Developers", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionDevelopers.setText(QtGui.QApplication.translate("MainWindow", "About BSoD Software", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSocial_Manager_GUI.setText(QtGui.QApplication.translate("MainWindow", "Social Manager - GUI", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionExit.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 
 import images_rc

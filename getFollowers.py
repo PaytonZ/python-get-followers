@@ -59,7 +59,7 @@ def get_followers():
 
 def fetch_for_all_accounts(accountInfo):
 
-	switchSting = {
+	switchString = {
 		'twitter' : get_twitter_followers,
 		'youtube' : get_youtube_followers,
 		'googleplus' : get_google_followers,
@@ -69,9 +69,10 @@ def fetch_for_all_accounts(accountInfo):
 	}
 	
 	account = accountInfo.split(':')
-	if account:
-		if account[0] in switchSting:
-			return switchSting[account[0]](account)
+	if account and account[1] != '':
+		print "acaaaaount --> " + account[1]
+		if account[0] in switchString:
+			return switchString[account[0]](account)
 
 def get_twitter_followers(account):
 
@@ -92,7 +93,7 @@ def get_twitter_followers(account):
 
 			print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
 
-			return ['twitter', str(twitter_account), str(followers['followers_count'])]
+			return ['Twitter', str(twitter_account), str(followers['followers_count'])]
 		except:
 			return ['twitter' , 'problem found while getting twitter' , 0 ]
 
