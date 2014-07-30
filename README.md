@@ -15,7 +15,7 @@ REQUIRED MODULES
 ================
 
 PySide 1.2.1 
-	pip install -U PySide should be enought for windows
+	should be enought for windows
 	or
 	go to http://qt-project.org/wiki/Get-PySide for other platforms
 
