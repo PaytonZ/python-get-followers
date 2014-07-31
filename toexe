@@ -1,0 +1,3 @@
+C:\Users\W7 BSoD Dev\Downloads\PyInstaller-2.1>pyinstaller.py -i ../python-get-f
+ollowers-master\python-get-followers-master/python-followers.ico ../python-get-f
+ollowers-master\python-get-followers-master/MainGui.py
