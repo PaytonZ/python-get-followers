@@ -186,7 +186,7 @@ def listenerOnClientClicked(item):
 GET FOLLOWERS AREA LISTENERS
 '''
 def listenerFetchButton():
-	print "fetching"
+	print "fetch bt started ;D"
 
 	tableView = mySW.ui.tableView
 	model = QtGui.QStandardItemModel(6, 3, tableView)
@@ -213,11 +213,20 @@ def listenerFetchButton():
 				model.setItem(i, 3, itemData)
 				i = i+1
 
+
 	tableView.setModel(model)
+	'''
 	tableView.setColumnWidth(0, 170)
 	tableView.setColumnWidth(1, 160)
 	tableView.setColumnWidth(2, 160)
 	tableView.setColumnWidth(3, 167)
+	'''
+	
+	for k in range(0,i):
+		tableView.resizeRowToContents(k)
+
+	
+   	
 
 def loadClientList():
 
@@ -261,6 +270,18 @@ def listenerDeleteClientButton():
 		accountManager.delete_client(currentItem.text())
 		mySW.ui.clientListWidget.takeItem(mySW.ui.clientListWidget.currentRow())	
 
+def addClientListener():
+        """
+        Opens the text version of the input dialog
+        """
+        text, result = QtGui.QInputDialog.getText(mySW, "Adding new Client",
+                                            "Insert the name of your new Client")
+        if result:
+        	accounts = [ 'pinterest:'+"", 'googleplus:'+"" , 'facebook:'+"", 'linkedin:'+"", 'youtube:'+"", 'twitter:'+"" ]
+         	accountManager.create_account_group(text,accounts,False)
+        	loadClientList()
+
+
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
 		super(ControlMainWindow, self).__init__(parent)
@@ -273,9 +294,10 @@ class ControlMainWindow(QtGui.QMainWindow):
 		loadClientList()
 
 		#Listener for Client name text field
-		self.ui.clientNameText.textEdited.connect(listenerClientName)
+		#self.ui.clientNameText.textEdited.connect(listenerClientName)
 		#Listener for save client and accounts button
-		self.ui.saveBt.clicked.connect(listenerSaveButton)
+		#self.ui.saveBt.clicked.connect(listenerSaveButton)
+		self.ui.addClientButton.clicked.connect(addClientListener)
 		#Listeners for checkboxes
 		self.ui.linkedinCk.clicked.connect(listenerCheckBoxes)
 		self.ui.twitterCk.clicked.connect(listenerCheckBoxes)

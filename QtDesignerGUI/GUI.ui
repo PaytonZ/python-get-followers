@@ -6,570 +6,394 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>626</height>
+    <width>833</width>
+    <height>662</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Social Manager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabManager">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>721</width>
-      <height>531</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <property name="usesScrollButtons">
-     <bool>false</bool>
-    </property>
-    <widget class="QWidget" name="accountManagerTab">
-     <attribute name="title">
-      <string>Account Manager</string>
-     </attribute>
-     <widget class="QTabWidget" name="tabAccountManager">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>691</width>
-        <height>441</height>
-       </rect>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="devTeam">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;BSoD Software&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
-      <property name="tabPosition">
-       <enum>QTabWidget::West</enum>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="versionGUI">
+      <property name="text">
+       <string>v0.17</string>
       </property>
-      <property name="tabShape">
-       <enum>QTabWidget::Rounded</enum>
-      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabManager">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
-      <property name="iconSize">
-       <size>
-        <width>64</width>
-        <height>64</height>
-       </size>
+      <property name="usesScrollButtons">
+       <bool>false</bool>
       </property>
-      <property name="elideMode">
-       <enum>Qt::ElideMiddle</enum>
-      </property>
-      <widget class="QWidget" name="clientManagerTab">
-       <attribute name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/icons/client.png</normaloff>:/icons/client.png</iconset>
-       </attribute>
+      <widget class="QWidget" name="accountManagerTab">
        <attribute name="title">
-        <string/>
+        <string>Account Manager</string>
        </attribute>
-       <widget class="QLabel" name="clientLabel">
+       <widget class="QTabWidget" name="tabAccountManager">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>50</y>
-          <width>111</width>
-          <height>16</height>
+          <x>10</x>
+          <y>10</y>
+          <width>771</width>
+          <height>491</height>
          </rect>
         </property>
-        <property name="text">
-         <string>Client name:</string>
+        <property name="tabPosition">
+         <enum>QTabWidget::West</enum>
         </property>
-       </widget>
-       <widget class="QLineEdit" name="clientNameText">
-        <property name="geometry">
-         <rect>
-          <x>250</x>
-          <y>50</y>
-          <width>241</width>
-          <height>21</height>
-         </rect>
+        <property name="tabShape">
+         <enum>QTabWidget::Rounded</enum>
         </property>
-       </widget>
-       <widget class="QGroupBox" name="groupBox">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>100</y>
-          <width>441</width>
-          <height>251</height>
-         </rect>
+        <property name="currentIndex">
+         <number>0</number>
         </property>
-        <property name="toolTip">
-         <string extracomment="All accounts could be blank"/>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
-        <property name="title">
-         <string>Accounts</string>
+        <property name="elideMode">
+         <enum>Qt::ElideMiddle</enum>
         </property>
-        <widget class="QWidget" name="formLayoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>30</y>
-           <width>411</width>
-           <height>211</height>
-          </rect>
-         </property>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="twitterText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="twitterLabel">
-            <property name="text">
-             <string>Twitter account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="youtubeLabel">
-            <property name="text">
-             <string>Youtube account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="youtubeText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="linkedinLabel">
-            <property name="text">
-             <string>Linkedin account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="linkedinText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="facebookLabel">
-            <property name="text">
-             <string>Facebook account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="facebookText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="googleLabel">
-            <property name="text">
-             <string>Google + account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="googleText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="pinterestLabel">
-            <property name="text">
-             <string>Pinterest account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="pinterestText">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>360</y>
-          <width>441</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="cancelBt">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
+        <widget class="QWidget" name="socialManagerTab">
+         <attribute name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/icons/social.png</normaloff>:/icons/social.png</iconset>
+         </attribute>
+         <attribute name="title">
+          <string/>
+         </attribute>
+         <widget class="QLabel" name="clientListLabel">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>62</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Client list</string>
+          </property>
+         </widget>
+         <widget class="QGroupBox" name="soccialAccountGroup">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>431</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Social account data</string>
+          </property>
+          <widget class="QPushButton" name="editBt">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>370</y>
+             <width>201</width>
+             <height>32</height>
+            </rect>
            </property>
            <property name="text">
-            <string>Cancel</string>
+            <string>Edit info</string>
            </property>
           </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="saveBt">
+          <widget class="QPushButton" name="removeBt">
            <property name="enabled">
             <bool>false</bool>
            </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>370</y>
+             <width>211</width>
+             <height>32</height>
+            </rect>
            </property>
            <property name="text">
-            <string>Save client and accounts</string>
+            <string>Remove accounts</string>
            </property>
           </widget>
-         </item>
-        </layout>
+          <widget class="QWidget" name="gridLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>421</width>
+             <height>331</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinAndMaxSize</enum>
+            </property>
+            <item row="3" column="0">
+             <widget class="QCheckBox" name="linkedinCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="googleLabel_2">
+              <property name="text">
+               <string>Google+</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="facebookLabel_2">
+              <property name="text">
+               <string>Facebook</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QCheckBox" name="youtubeCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLineEdit" name="youtubeText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLineEdit" name="linkedinText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <widget class="QLabel" name="pinterestLabel_2">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Pinterest</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
+             <widget class="QCheckBox" name="pinterestCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="youtubeLabel_2">
+              <property name="text">
+               <string>Youtube</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="twitterLabel_2">
+              <property name="text">
+               <string>Twitter</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLineEdit" name="twitterText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="facebookText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLineEdit" name="googleText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="2">
+             <widget class="QLineEdit" name="pinterestText_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QCheckBox" name="facebookCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QCheckBox" name="googleCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="linkedinLabel_2">
+              <property name="text">
+               <string>Linkedin</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QCheckBox" name="twitterCk">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QListWidget" name="clientListWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>30</y>
+            <width>221</width>
+            <height>341</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="deleteClientButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>390</y>
+            <width>211</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Delete Client</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="addClientButton">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>0</y>
+            <width>161</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add New Client</string>
+          </property>
+         </widget>
+        </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="socialManagerTab">
-       <attribute name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/icons/social.png</normaloff>:/icons/social.png</iconset>
-       </attribute>
+      <widget class="QWidget" name="followersGetter">
        <attribute name="title">
-        <string/>
+        <string>Followers Getter</string>
        </attribute>
-       <widget class="QLabel" name="clientListLabel">
+       <widget class="QTableView" name="tableView">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>62</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Client list</string>
-        </property>
-       </widget>
-       <widget class="QGroupBox" name="soccialAccountGroup">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>10</y>
-          <width>361</width>
+          <width>791</width>
           <height>411</height>
          </rect>
         </property>
-        <property name="title">
-         <string>Social account data</string>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
         </property>
-        <widget class="QPushButton" name="editBt">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>370</y>
-           <width>141</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Edit info</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="removeBt">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>170</x>
-           <y>370</y>
-           <width>141</width>
-           <height>32</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Remove accounts</string>
-         </property>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>30</y>
-           <width>341</width>
-           <height>331</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <property name="sizeConstraint">
-           <enum>QLayout::SetMinAndMaxSize</enum>
-          </property>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="linkedinCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QLabel" name="googleLabel_2">
-            <property name="text">
-             <string>Google + account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="facebookLabel_2">
-            <property name="text">
-             <string>Facebook account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="youtubeCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QLineEdit" name="youtubeText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QLineEdit" name="linkedinText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="1">
-           <widget class="QLabel" name="pinterestLabel_2">
-            <property name="text">
-             <string>Pinterest account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="QCheckBox" name="pinterestCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="youtubeLabel_2">
-            <property name="text">
-             <string>Youtube account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="twitterLabel_2">
-            <property name="text">
-             <string>Twitter account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="twitterText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="facebookText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="2">
-           <widget class="QLineEdit" name="googleText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="2">
-           <widget class="QLineEdit" name="pinterestText_2">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="facebookCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QCheckBox" name="googleCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="linkedinLabel_2">
-            <property name="text">
-             <string>Linkedin account:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="twitterCk">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-       <widget class="QListWidget" name="clientListWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>30</y>
-          <width>211</width>
-          <height>341</height>
-         </rect>
+        <property name="sortingEnabled">
+         <bool>true</bool>
         </property>
        </widget>
-       <widget class="QPushButton" name="deleteClientButton">
+       <widget class="QPushButton" name="fetchBt">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>390</y>
-          <width>211</width>
-          <height>31</height>
+          <x>280</x>
+          <y>430</y>
+          <width>291</width>
+          <height>61</height>
          </rect>
         </property>
         <property name="text">
-         <string>Delete Client</string>
+         <string>Fetch</string>
         </property>
        </widget>
       </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="followersGetter">
-     <attribute name="title">
-      <string>Followers Getter</string>
-     </attribute>
-     <widget class="QTableView" name="tableView">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>691</width>
-        <height>411</height>
-       </rect>
-      </property>
-      <property name="editTriggers">
-       <set>QAbstractItemView::NoEditTriggers</set>
-      </property>
-      <property name="sortingEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="fetchBt">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>430</y>
-        <width>291</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Fetch</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="versionGUI">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>550</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Version 0.16</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="devTeam">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>550</y>
-      <width>101</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;BSoD Software&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>770</width>
+     <width>833</width>
      <height>20</height>
     </rect>
    </property>
@@ -616,118 +440,5 @@
  <resources>
   <include location="images.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>pinterestText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>348</x>
-     <y>462</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>434</x>
-     <y>376</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>googleText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>305</x>
-     <y>459</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>466</x>
-     <y>345</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>facebookText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>296</x>
-     <y>461</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>486</x>
-     <y>316</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>linkedinText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>273</x>
-     <y>458</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>505</x>
-     <y>284</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>youtubeText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>294</x>
-     <y>460</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>525</x>
-     <y>252</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>twitterText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>279</x>
-     <y>462</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>537</x>
-     <y>225</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBt</sender>
-   <signal>clicked()</signal>
-   <receiver>clientNameText</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>232</x>
-     <y>461</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>371</x>
-     <y>132</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

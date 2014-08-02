@@ -46,12 +46,7 @@ print "If you're not agree , close this script immediately"
 print "v0.14 -- 12/07/2014 - linkedin working"
 print "=========================================================="
 
-print '*****SOCIAL NETWORK MANAGER*****'
-print ''
-print '1 - Get followers from existing accounts'
-print '2 - Open account manager'
-print '3 - To exit from social network manager'
-print ''
+
 
 def get_followers():
 	getFollowers.get_followers()
