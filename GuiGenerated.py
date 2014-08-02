@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Sat Aug  2 13:50:51 2014
+# Created: Sat Aug  2 21:19:12 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,6 +30,12 @@ class Ui_MainWindow(object):
         self.accountManagerTab.setObjectName("accountManagerTab")
         self.tabAccountManager = QtGui.QTabWidget(self.accountManagerTab)
         self.tabAccountManager.setGeometry(QtCore.QRect(10, 10, 771, 491))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tabAccountManager.sizePolicy().hasHeightForWidth())
+        self.tabAccountManager.setSizePolicy(sizePolicy)
+        self.tabAccountManager.setToolTip("")
         self.tabAccountManager.setTabPosition(QtGui.QTabWidget.West)
         self.tabAccountManager.setTabShape(QtGui.QTabWidget.Rounded)
         self.tabAccountManager.setIconSize(QtCore.QSize(64, 64))
@@ -156,6 +162,9 @@ class Ui_MainWindow(object):
         self.clientListWidget = QtGui.QListWidget(self.socialManagerTab)
         self.clientListWidget.setGeometry(QtCore.QRect(10, 30, 221, 341))
         self.clientListWidget.setProperty("cursor", QtCore.Qt.PointingHandCursor)
+        self.clientListWidget.setMouseTracking(True)
+        self.clientListWidget.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.clientListWidget.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.clientListWidget.setObjectName("clientListWidget")
         self.deleteClientButton = QtGui.QPushButton(self.socialManagerTab)
         self.deleteClientButton.setGeometry(QtCore.QRect(10, 380, 211, 31))
@@ -177,6 +186,12 @@ class Ui_MainWindow(object):
         self.fetchBt = QtGui.QPushButton(self.followersGetter)
         self.fetchBt.setGeometry(QtCore.QRect(280, 430, 291, 61))
         self.fetchBt.setObjectName("fetchBt")
+        self.progressFetchFollowers = QtGui.QProgressBar(self.followersGetter)
+        self.progressFetchFollowers.setGeometry(QtCore.QRect(30, 450, 221, 41))
+        self.progressFetchFollowers.setProperty("value", 24)
+        self.progressFetchFollowers.setTextVisible(True)
+        self.progressFetchFollowers.setTextDirection(QtGui.QProgressBar.TopToBottom)
+        self.progressFetchFollowers.setObjectName("progressFetchFollowers")
         self.tabManager.addTab(self.followersGetter, "")
         self.verticalLayout.addWidget(self.tabManager)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -214,10 +229,13 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Social Manager", None, QtGui.QApplication.UnicodeUTF8))
+        self.devTeam.setToolTip(QtGui.QApplication.translate("MainWindow", "BSoD Software - Just the best dev team ", None, QtGui.QApplication.UnicodeUTF8))
         self.devTeam.setText(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">BSoD Software</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.versionGUI.setToolTip(QtGui.QApplication.translate("MainWindow", "Check out the version notes", None, QtGui.QApplication.UnicodeUTF8))
         self.versionGUI.setText(QtGui.QApplication.translate("MainWindow", "v0.17", None, QtGui.QApplication.UnicodeUTF8))
         self.clientListLabel.setText(QtGui.QApplication.translate("MainWindow", "Client list", None, QtGui.QApplication.UnicodeUTF8))
         self.soccialAccountGroup.setTitle(QtGui.QApplication.translate("MainWindow", "Social account data", None, QtGui.QApplication.UnicodeUTF8))
+        self.editBt.setToolTip(QtGui.QApplication.translate("MainWindow", "Click here to unlock the Client for editing", None, QtGui.QApplication.UnicodeUTF8))
         self.editBt.setText(QtGui.QApplication.translate("MainWindow", "Edit info", None, QtGui.QApplication.UnicodeUTF8))
         self.removeBt.setText(QtGui.QApplication.translate("MainWindow", "Remove accounts", None, QtGui.QApplication.UnicodeUTF8))
         self.googleLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Google+", None, QtGui.QApplication.UnicodeUTF8))
@@ -226,9 +244,12 @@ class Ui_MainWindow(object):
         self.youtubeLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Youtube", None, QtGui.QApplication.UnicodeUTF8))
         self.twitterLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Twitter", None, QtGui.QApplication.UnicodeUTF8))
         self.linkedinLabel_2.setText(QtGui.QApplication.translate("MainWindow", "Linkedin", None, QtGui.QApplication.UnicodeUTF8))
+        self.clientListWidget.setToolTip(QtGui.QApplication.translate("MainWindow", "This is your client list.", None, QtGui.QApplication.UnicodeUTF8))
         self.deleteClientButton.setText(QtGui.QApplication.translate("MainWindow", "Delete Client", None, QtGui.QApplication.UnicodeUTF8))
+        self.addClientButton.setToolTip(QtGui.QApplication.translate("MainWindow", "Click here to add a new client", None, QtGui.QApplication.UnicodeUTF8))
         self.addClientButton.setText(QtGui.QApplication.translate("MainWindow", "Add New Client", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.accountManagerTab), QtGui.QApplication.translate("MainWindow", "Account Manager", None, QtGui.QApplication.UnicodeUTF8))
+        self.fetchBt.setToolTip(QtGui.QApplication.translate("MainWindow", "Press this button to start the magic", None, QtGui.QApplication.UnicodeUTF8))
         self.fetchBt.setText(QtGui.QApplication.translate("MainWindow", "Fetch", None, QtGui.QApplication.UnicodeUTF8))
         self.tabManager.setTabText(self.tabManager.indexOf(self.followersGetter), QtGui.QApplication.translate("MainWindow", "Followers Getter", None, QtGui.QApplication.UnicodeUTF8))
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))

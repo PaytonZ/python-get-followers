@@ -11,19 +11,22 @@ from linkedin import server
 from twython import Twython
 from pprint import pprint
 import sys
-
+import logging
 from helpers import FileHelper
 
 import webbrowser
 import BaseHTTPServer
 import urlparse
 
+
+errorMessage = "Problem found with this account."
+
 def get_followers():
 	filename = 'data.txt'
 	print "Trying to read data from %s" % filename
 
 	data = FileHelper().openReadOnlyJSONFileASObject(filename)
-
+	
 	for client in data['clients']:
 
 		print "Loading account named ... \"%s\"" % client['name']
@@ -54,11 +57,10 @@ def get_followers():
 
 		#pinterest_api_token ="MTQzMTU5NDozODY4ODc1NjE2NDcyNTY3NDU6NjU1MzV8MTQwNDc1OTM3NjoyNTkyMDAwLS1iZDM3NzU2NTVlNWViNTc1MjVhMDdkMzc2MjBjMmFmNQ%3D%3D"
 		'''
-
 	print "Have a nice day!"
 
 def fetch_for_all_accounts(accountInfo):
-
+	
 	switchString = {
 		'twitter' : get_twitter_followers,
 		'youtube' : get_youtube_followers,
@@ -70,7 +72,6 @@ def fetch_for_all_accounts(accountInfo):
 	
 	account = accountInfo.split(':')
 	if account and account[1] != '':
-		print "acaaaaount --> " + account[1]
 		if account[0] in switchString:
 			return switchString[account[0]](account)
 
@@ -90,12 +91,11 @@ def get_twitter_followers(account):
 			twitter = Twython(twitter_consumer_key, access_token=ACCESS_TOKEN)
 			twitter_account = account[1]
 			followers = twitter.show_user(screen_name = twitter_account)
-
-			print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
+			#print "Twitter followers of %s : %d" % (twitter_account , followers['followers_count'])
 
 			return ['Twitter', str(twitter_account), str(followers['followers_count'])]
 		except:
-			return ['twitter' , 'problem found while getting twitter' , 0 ]
+			return ['Twitter', str(twitter_account), str(errorMessage)]
 
 def get_youtube_followers(account):
 
@@ -109,11 +109,11 @@ def get_youtube_followers(account):
 			final_youtube_url = youtube_api % channel_id  + youtube_key
 			data = json.load(urllib2.urlopen(final_youtube_url))
 			 
-			print "Youtube followers of %s :" % channel_id  + str(data['items'][0]['statistics']['subscriberCount'])
+			#print "Youtube followers of %s :" % channel_id  + str(data['items'][0]['statistics']['subscriberCount'])
 
 			return [str('youtube'), str(channel_id), str(data['items'][0]['statistics']['subscriberCount'])]
 		except:
-			return [str('youtube'), 'found a prob in youtube', 0]
+			return [str('youtube'),str(channel_id),str(errorMessage)]
 
 def get_google_followers(account):
 
@@ -126,11 +126,11 @@ def get_google_followers(account):
 			youtube_key = "AIzaSyD-e27-f9op5r1POt3bMWisERu-yrl1WBU"
 			google_plus_final = googleplusapi % id_googleplus + youtube_key
 			data = json.load(urllib2.urlopen(google_plus_final))
-			print "Google+ followers of " + str(id_googleplus) +":"+ str(data['circledByCount'])
+			#print "Google+ followers of " + str(id_googleplus) +":"+ str(data['circledByCount'])
 
 			return [str('google'), str(id_googleplus), str(data['circledByCount'])]
 		except:
-			return [str('google'), "found a problem in google", 0]
+			return [str('google'), str(id_googleplus), str(errorMessage)]
 
 def get_facebook_followers(account):
 
@@ -142,11 +142,11 @@ def get_facebook_followers(account):
 				facebook_id = account[1]
 				facebook_final = facebook_api % facebook_id
 				data = json.load(urllib2.urlopen(facebook_final))
-				print "Facebook followers of %s" % str(facebook_id) +":"+ str(data['likes'])
+				#print "Facebook followers of %s" % str(facebook_id) +":"+ str(data['likes'])
 
 				return [str('facebook'), str(facebook_id), str(data['likes'])]
 			except:
-				return [str('facebook'), 'prob with facebook', 0 ]
+				return [str('facebook'), str(facebook_id), str(errorMessage) ]
 
 def get_pinterest_followers(account):
 
@@ -159,11 +159,11 @@ def get_pinterest_followers(account):
 			pinterest_user = account[1]
 			pinterest_final_url = pinterest_url % pinterest_user + pinterest_api_token
 			data = json.load(urllib2.urlopen(pinterest_final_url))
-			print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
+			#print "Pinterest followers of %s" % str(pinterest_user) +":"+ str(data['data']['follower_count'])
 
 			return [str('pinterest'), str(pinterest_user), str(data['data']['follower_count'])]
 		except:
-			return [str('pinterest'), 'found a prob with pinterest', 0]
+			return [str('pinterest'), str(pinterest_user), str(errorMessage)]
 
 def get_linkedin_followers(account):
 

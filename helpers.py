@@ -74,7 +74,7 @@ class FileHelper:
 			return open(fileName, mode)
 		except:
 			print "parsing exception!"
-			sys.exit(1)
+			#sys.exit(1)
 
 	'''
 	Close a stream

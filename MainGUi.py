@@ -6,6 +6,7 @@ v0.9 -- 10/07/2014 - GUI more funcionality (load clients in a list)
 v0.10 -- 11/07/2014 - Helper for file management
 v0.11 -- 11/07/2014 - Loading followers on tableView
 v0.16 -- 30/07/2014 - Now delete client is working and more info in the table VIew
+v0.17 -- 02/08/2014 - All the client management in one tab. Added more feedback
 '''
 
 from GuiGenerated import Ui_MainWindow
@@ -17,6 +18,7 @@ import getFollowers
 import accountManager
 import string
 from PySide.QtCore import QObject, SIGNAL, SLOT
+import logging
 
 
 oldData = { 'twitter' : '',
@@ -30,6 +32,12 @@ oldData = { 'twitter' : '',
 dicCk = {}
 
 dicLt = {}
+
+
+def createMessagebox(title,msg):
+	
+	QtGui.QMessageBox.information(mySW, title, msg)
+
 
 '''
 CLIENT AREA LISTENERS
@@ -80,6 +88,13 @@ def listenerCheckBoxes():
 
 def listenerRemoveAccounts():
 
+	flags = QtGui.QMessageBox.Yes
+	flags |= QtGui.QMessageBox.StandardButton.No
+
+	result = QtGui.QMessageBox.critical(mySW, "Deleting a client","This operation cannot be undone ... continue?",flags)
+	if result == QtGui.QMessageBox.No:
+		return
+	
 	item = mySW.ui.clientListWidget.currentItem()
 	name = item.text()
 	accounts = []
@@ -188,6 +203,9 @@ GET FOLLOWERS AREA LISTENERS
 def listenerFetchButton():
 	print "fetch bt started ;D"
 
+	mySW.ui.progressFetchFollowers.setVisible(True)
+	mySW.ui.progressFetchFollowers.setValue(0)
+
 	tableView = mySW.ui.tableView
 	model = QtGui.QStandardItemModel(6, 3, tableView)
 	model.setHorizontalHeaderLabels(('Client Name' , 'Social Network', 'Accounts', 'Followers'))
@@ -195,8 +213,11 @@ def listenerFetchButton():
 	data = FileHelper().openReadOnlyJSONFileASObject('data.txt')
 
 	i = 0
+	clientsLenght = len(data['clients'])
+	progress = (float((clientsLenght*5*10))/100)*2
+	
+	actval = 0;
 	for client in data['clients']:
-		
 		for account in client['accounts']:
 			accountData = getFollowers.fetch_for_all_accounts(account)
 
@@ -212,8 +233,12 @@ def listenerFetchButton():
 				model.setItem(i, 2, itemName)
 				model.setItem(i, 3, itemData)
 				i = i+1
+			actval = actval+progress;
+			mySW.ui.progressFetchFollowers.setValue(actval)
+			app.processEvents();
+			mySW.ui.progressFetchFollowers.update()
 
-
+	mySW.ui.progressFetchFollowers.setValue(100)		
 	tableView.setModel(model)
 	'''
 	tableView.setColumnWidth(0, 170)
@@ -262,9 +287,18 @@ def configureDicctionaries():
 	}
 
 def listenerActionExit():
+	
 	sys.exit(0)
 
 def listenerDeleteClientButton():
+	
+	flags = QtGui.QMessageBox.Yes
+	flags |= QtGui.QMessageBox.StandardButton.No
+
+	result = QtGui.QMessageBox.critical(mySW, "Deleting a client","This operation cannot be undone ... continue?",flags)
+	if result == QtGui.QMessageBox.No:
+		return
+
 	currentItem = mySW.ui.clientListWidget.currentItem()
 	if currentItem:
 		accountManager.delete_client(currentItem.text())
@@ -287,7 +321,8 @@ def listenerActionAboutSM():
 	aboutmsg = aboutmsg +"If you're not agree , close this immediately\n"
 	aboutmsg = aboutmsg +"Proudly made for BSoD Software , special greetings to JLPV and DST"
 
-	QtGui.QMessageBox.information(mySW, "About SM", aboutmsg)
+	createMessagebox("About SM", aboutmsg)
+	
 
 def listenerActionAboutBSOD():
 	
@@ -331,6 +366,8 @@ class ControlMainWindow(QtGui.QMainWindow):
 
 		QtCore.QObject.connect(self.ui.actionAboutSM, QtCore.SIGNAL('triggered()'), listenerActionAboutSM)
 		QtCore.QObject.connect(self.ui.actionaboutBSOD, QtCore.SIGNAL('triggered()'), listenerActionAboutBSOD)
+
+		self.ui.progressFetchFollowers.setVisible(False)
 		
 
 
