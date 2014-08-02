@@ -320,12 +320,15 @@
             <height>341</height>
            </rect>
           </property>
+          <property name="cursor" stdset="0">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
          </widget>
          <widget class="QPushButton" name="deleteClientButton">
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>390</y>
+            <y>380</y>
             <width>211</width>
             <height>31</height>
            </rect>
@@ -408,9 +411,9 @@
     <property name="title">
      <string>About</string>
     </property>
-    <addaction name="actionSocial_Manager_GUI"/>
+    <addaction name="actionAboutSM"/>
     <addaction name="separator"/>
-    <addaction name="actionDevelopers"/>
+    <addaction name="actionaboutBSOD"/>
    </widget>
    <addaction name="menuArchive"/>
    <addaction name="menuAbout"/>
@@ -421,12 +424,12 @@
     <string>Open accounts data file</string>
    </property>
   </action>
-  <action name="actionDevelopers">
+  <action name="actionaboutBSOD">
    <property name="text">
     <string>About BSoD Software</string>
    </property>
   </action>
-  <action name="actionSocial_Manager_GUI">
+  <action name="actionAboutSM">
    <property name="text">
     <string>Social Manager - GUI</string>
    </property>

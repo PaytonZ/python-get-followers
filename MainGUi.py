@@ -281,6 +281,17 @@ def addClientListener():
          	accountManager.create_account_group(text,accounts,False)
         	loadClientList()
 
+def listenerActionAboutSM():
+	aboutmsg = "Program for getting Followers in Social Networks\n"
+	aboutmsg = aboutmsg +"The Program is given AS IS, dont blame the dev if it doesn't work\n"
+	aboutmsg = aboutmsg +"If you're not agree , close this immediately\n"
+	aboutmsg = aboutmsg +"Proudly made for BSoD Software , special greetings to JLPV and DST"
+
+	QtGui.QMessageBox.information(mySW, "About SM", aboutmsg)
+
+def listenerActionAboutBSOD():
+	
+	QtGui.QMessageBox.information(mySW, "About BSoD Software", "Placeholder")
 
 class ControlMainWindow(QtGui.QMainWindow):
 	def __init__(self, parent=None):
@@ -318,6 +329,8 @@ class ControlMainWindow(QtGui.QMainWindow):
 		
 		QtCore.QObject.connect(self.ui.actionExit, QtCore.SIGNAL('triggered()'), listenerActionExit)
 
+		QtCore.QObject.connect(self.ui.actionAboutSM, QtCore.SIGNAL('triggered()'), listenerActionAboutSM)
+		QtCore.QObject.connect(self.ui.actionaboutBSOD, QtCore.SIGNAL('triggered()'), listenerActionAboutBSOD)
 		
 
 

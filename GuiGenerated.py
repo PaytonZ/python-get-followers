@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtDesignerGUI/GUI.ui'
 #
-# Created: Sat Aug  2 12:37:39 2014
+# Created: Sat Aug  2 13:50:51 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -155,9 +155,10 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.twitterCk, 0, 0, 1, 1)
         self.clientListWidget = QtGui.QListWidget(self.socialManagerTab)
         self.clientListWidget.setGeometry(QtCore.QRect(10, 30, 221, 341))
+        self.clientListWidget.setProperty("cursor", QtCore.Qt.PointingHandCursor)
         self.clientListWidget.setObjectName("clientListWidget")
         self.deleteClientButton = QtGui.QPushButton(self.socialManagerTab)
-        self.deleteClientButton.setGeometry(QtCore.QRect(10, 390, 211, 31))
+        self.deleteClientButton.setGeometry(QtCore.QRect(10, 380, 211, 31))
         self.deleteClientButton.setObjectName("deleteClientButton")
         self.addClientButton = QtGui.QPushButton(self.socialManagerTab)
         self.addClientButton.setGeometry(QtCore.QRect(390, 0, 161, 31))
@@ -192,17 +193,17 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.actionOpen_accounts_data_file = QtGui.QAction(MainWindow)
         self.actionOpen_accounts_data_file.setObjectName("actionOpen_accounts_data_file")
-        self.actionDevelopers = QtGui.QAction(MainWindow)
-        self.actionDevelopers.setObjectName("actionDevelopers")
-        self.actionSocial_Manager_GUI = QtGui.QAction(MainWindow)
-        self.actionSocial_Manager_GUI.setObjectName("actionSocial_Manager_GUI")
+        self.actionaboutBSOD = QtGui.QAction(MainWindow)
+        self.actionaboutBSOD.setObjectName("actionaboutBSOD")
+        self.actionAboutSM = QtGui.QAction(MainWindow)
+        self.actionAboutSM.setObjectName("actionAboutSM")
         self.actionExit = QtGui.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
         self.menuArchive.addAction(self.actionOpen_accounts_data_file)
         self.menuArchive.addAction(self.actionExit)
-        self.menuAbout.addAction(self.actionSocial_Manager_GUI)
+        self.menuAbout.addAction(self.actionAboutSM)
         self.menuAbout.addSeparator()
-        self.menuAbout.addAction(self.actionDevelopers)
+        self.menuAbout.addAction(self.actionaboutBSOD)
         self.menubar.addAction(self.menuArchive.menuAction())
         self.menubar.addAction(self.menuAbout.menuAction())
 
@@ -233,8 +234,8 @@ class Ui_MainWindow(object):
         self.menuArchive.setTitle(QtGui.QApplication.translate("MainWindow", "Archive", None, QtGui.QApplication.UnicodeUTF8))
         self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionOpen_accounts_data_file.setText(QtGui.QApplication.translate("MainWindow", "Open accounts data file", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDevelopers.setText(QtGui.QApplication.translate("MainWindow", "About BSoD Software", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionSocial_Manager_GUI.setText(QtGui.QApplication.translate("MainWindow", "Social Manager - GUI", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionaboutBSOD.setText(QtGui.QApplication.translate("MainWindow", "About BSoD Software", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionAboutSM.setText(QtGui.QApplication.translate("MainWindow", "Social Manager - GUI", None, QtGui.QApplication.UnicodeUTF8))
         self.actionExit.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 
 import images_rc
